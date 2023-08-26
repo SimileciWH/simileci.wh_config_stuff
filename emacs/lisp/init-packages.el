@@ -43,6 +43,17 @@
       ;; exec-path-from-shell-check-startup-files
       )
 
+(require 'keyfreq)
+(keyfreq-mode t)
+(keyfreq-autosave-mode t)
+(setq keyfreq-excluded-commands
+      '(self-insert-command
+        forward-char
+        backward-char
+        previous-line
+        next-line
+	delete-backward-char
+	))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package restart-emacs)
