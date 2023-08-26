@@ -29,6 +29,22 @@ supports exporting consult-grep to wgrep, file to wdeired, and consult-location 
 
 
 
+
+(defvar astyle-command "astyle --style=allman --max-code-length=100 --pad-oper")
+(defun astyle-region(start end)
+  "Run astyle on region or buffer"
+  (interactive (if mark-active
+		   (list (region-beginning) (region-end))
+		 (list (point-min) (point-max))
+		 ))
+  (save-restriction
+    (shell-command-on-region start end
+			     astyle-command
+			     (current-buffer) t
+			     (get-buffer-create "*Astyle Errors*") t)
+    )
+  )
+
 (defun h_wang/emacs-frame-change ()
   (if (window-system nil)
       (progn
@@ -52,19 +68,24 @@ supports exporting consult-grep to wgrep, file to wdeired, and consult-location 
       (scroll-bar-mode -1)
     )
   )
-(defvar astyle-command "astyle --style=allman --max-code-length=100 --pad-oper")
-(defun astyle-region(start end)
-  "Run astyle on region or buffer"
-  (interactive (if mark-active
-		   (list (region-beginning) (region-end))
-		 (list (point-min) (point-max))
-		 ))
-  (save-restriction
-    (shell-command-on-region start end
-			     astyle-command
-			     (current-buffer) t
-			     (get-buffer-create "*Astyle Errors*") t)
-    )
+
+(defun h_wang/insert-new-line-next ()
+  (interactive)
+  (move-end-of-line 1)
+  (open-line 1)
+  (next-line 1)
   )
+(defun h_wang/insert-new-line-previous ()
+  (interactive)
+  (move-beginning-of-line 1)
+  (open-line 1)
+  )
+(defun h_wang/kill-cur-line-string ()
+  (interactive)
+  (move-beginning-of-line 1)
+  (kill-line 1)
+  )
+
+
 
 (provide 'init-func)
