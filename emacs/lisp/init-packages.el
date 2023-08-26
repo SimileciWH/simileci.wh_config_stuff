@@ -157,5 +157,10 @@
   (dashboard-setup-startup-hook)
   )
 
+(use-package rainbow-delimiters
+  :config
+  (rainbow-delimiters-mode t)
+  )
+
 
 (provide 'init-packages)
