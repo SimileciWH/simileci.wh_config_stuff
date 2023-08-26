@@ -30,6 +30,9 @@
 (global-set-key (kbd "C-h k") 'counsel-descbinds)
 (global-set-key (kbd "C-h C-v") 'consel-describe-symbol)
 
+(global-set-key [remap move-beginning-of-line] 'mwim-beginning)
+(global-set-key [remap move-end-of-line] 'mwim-end)
+
 (use-package which-key
   :init
   (setq which-key_idle-delay 0.01)
