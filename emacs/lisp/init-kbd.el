@@ -5,8 +5,8 @@
 	(setq mac-command-modifier 'super))
        (*is-windows*
 	"need change lwindow and lALT with keyboard or powertoy"
-	(setq w32-pass-lwindow-to-system nil)
-	(setq w32-lwindow-modifier 'super)
+	;; (setq w32-pass-lwindow-to-system nil)
+	(setq w32-apps-modifier 'super)
 	(w32-register-hot-key [s-])
 	
 	)
