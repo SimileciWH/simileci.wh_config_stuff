@@ -4,4 +4,3 @@
 
 #include UseCaspSameAsMac.ahk
 
-#include emacsWin.ahk
