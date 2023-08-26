@@ -126,8 +126,9 @@
   )
 
 (+general-global-menu! "view" "v"
+  "d" 'dired-jump-other-window
   "a" 'annotate-annotate
-  "d" 'annotate-delete-annotation
+  "k" 'annotate-delete-annotation
   "s" 'annotate-show-annotation-summary
   "[" 'annotate-goto-previous-annotation
   "S" 'tabspaces-save-session
@@ -148,6 +149,9 @@
   "y" 'avy-copy-line
   "d" 'kill-whole-line
   "f" 'astyle-region
+  "k" 'h_wang/kill-cur-line-string
+  "/" 'h_wang/insert-new-line-next
+  "?" 'h_wang/insert-new-line-previous
   ;; "w" 'iedit-mode
   ;; "e" 'iedit-restrict-function
   ;; "l" 'iedit-restrict-current-line
