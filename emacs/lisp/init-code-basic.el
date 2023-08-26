@@ -1,4 +1,6 @@
 
+(add-hook 'prog-mode-hook #'hs-minor-mode)
+
 (use-package quickrun
     :commands (quickrun)
     :init
