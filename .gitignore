@@ -20,3 +20,11 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
+
+*.bk/
+
+emcas_Key/
+
+tabbox/
+
+espansoCfg/
