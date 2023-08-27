@@ -75,6 +75,12 @@
   "w" 'treemacs-select-windows
   "b" 'treemacs-bookmark
   "f" 'treemacs-find-tag
+  "s" 'lsp-treemacs-symbols
+  "F" 'lsp-treemacs-errors-list
+  "g" 'lsp-treemacs-goto-symbol
+  "h" 'lsp-treemacs-call-hierarchy
+  "r" 'lsp-treemacs-references
+  "d" 'lsp-treemacs-implementations
   
   )
 (+general-global-menu! "layout-right" "r"
@@ -92,13 +98,12 @@
   )
 (+general-global-menu! "file" "f"
   "o" 'recentf-open-files
-  "f" 'find-file
   "r" 'consult-recent-file
   "L" 'consult-locate
-  "j" 'dired-jump
   ;; "R" 'my/rename-current-buffer-file
   "p" 'project-find-file
-  
+  "f" 'counsel-projectile-find-file
+  "d" 'counsel-projectile-find-dir
   )
 (+general-global-menu! "tabspace" "t"
   "c" 'tabspaces-clear-buffers
@@ -126,10 +131,10 @@
   "f" 'counsel-etags-list-tag-in-current-file
   ;; "" 'counsel-etags-grep-extra-arguments
   "p" 'project-find-regexp
+  "r" 'counsel-projectile-rg
   )
 
 (+general-global-menu! "view" "v"
-  "d" 'dired-jump-other-window
   "a" 'annotate-annotate
   "k" 'annotate-delete-annotation
   "s" 'annotate-show-annotation-summary
@@ -193,17 +198,19 @@
   "l" 'mc/insert-numbers
   ;; "" 'mc/insert-letters
   ;; "" 'mc/sort-regions
-  "R" 'mc/reverse-regions
+  ;; "R" 'mc/reverse-regions
   ;; "" 'mc/vertical-align
   "A" 'mc/vertical-align-with-space
+  "R" 'projectile-replace
   )
 
 (+general-global-menu! "project" "p"
-  "d" 'project-dired
   "e" 'project-eshell
   "p" 'project-switch-project
   "a" 'project-remember-projects-under
   "x" 'project-forget-project
+  "s" 'counsel-projectile-switch-project
+  
   
   )
 
