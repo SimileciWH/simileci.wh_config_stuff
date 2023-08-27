@@ -75,12 +75,12 @@
   "w" 'treemacs-select-windows
   "b" 'treemacs-bookmark
   "f" 'treemacs-find-tag
-  "s" 'lsp-treemacs-symbols
-  "F" 'lsp-treemacs-errors-list
-  "g" 'lsp-treemacs-goto-symbol
-  "h" 'lsp-treemacs-call-hierarchy
-  "r" 'lsp-treemacs-references
-  "d" 'lsp-treemacs-implementations
+  ;; "s" 'lsp-treemacs-symbols
+  ;; "F" 'lsp-treemacs-errors-list
+  ;; "g" 'lsp-treemacs-goto-symbol
+  ;; "h" 'lsp-treemacs-call-hierarchy
+  ;; "r" 'lsp-treemacs-references
+  ;; "d" 'lsp-treemacs-implementations
   
   )
 (+general-global-menu! "layout-right" "r"

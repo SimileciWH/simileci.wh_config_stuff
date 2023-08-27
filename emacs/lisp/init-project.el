@@ -2,7 +2,7 @@
 (require 'init-counsel-etags)
 (require 'init-code-basic)
 (require 'init-coding-request)
-(require 'init-lsp)
+;; (require 'init-lsp)
 
 (use-package projectile
   ;; :bind (("C-c k" . projectile-command-map))

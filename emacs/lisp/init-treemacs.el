@@ -48,12 +48,12 @@
   :after (treemacs projectile)
   )
 
-(use-package lsp-treemacs
-  :after (treemacs lsp)
-  :config
-  (setq
-   lsp-treemacs-sync-mode 1
-   )
-  )
+;; (use-package lsp-treemacs
+;;   :after (treemacs lsp)
+;;   :config
+;;   (setq
+;;    lsp-treemacs-sync-mode 1
+;;    )
+;;   )
 
 (provide 'init-treemacs)

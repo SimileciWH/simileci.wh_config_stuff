@@ -12,9 +12,6 @@
 ;    :mode 'c-mode
     :default "c")
     )
-;; (use-package eglot
-;;   :hook ((c-mode c++-mode) . eglot-ensure)
-;;   )
 
 (use-package treesit-auto
   :init
