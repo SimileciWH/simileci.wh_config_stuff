@@ -234,7 +234,7 @@
   "w" 'resize-window
   )
 
-(+general-global-menu! "bookmarks" "m"
+(+general-global-menu! "bookmarks" "k"
   "j" 'counsel-bookmark  ;;create or jump
   "n" 'bookmark-rename
   "d" 'bookmark-delete
@@ -242,6 +242,18 @@
   "l" 'list-bookmarks
   "w" 'bookmark-write
   "L" 'bookmark-load
+  )
+(+general-global-menu! "markdown" "m"
+  "v" 'grip-mode
+  "l" 'markdown-toc-follow-link-at-point
+  "t" 'markdown-toc-generate-or-refresh-toc
+  "r" 'markdown-toc-generate-toc
+  "d" 'markdown-toc-delete-toc
+  "i" 'markdown-insert-gfm-code-block
+  "n" 'markdown-outline-next
+  "p" 'markdown-outline-up
+  "N" 'markdown-outline-next-same-level
+  "P" 'markdown-outline-previous-same-level
   )
 
 

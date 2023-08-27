@@ -57,8 +57,11 @@
 (use-package flycheck
   :hook
   (prog-mode . flycheck-mode)
-  :config
-  ;; (global-flycheck-mode)
+  :init
+  (setq
+   global-flycheck-mode nil
+   flycheck-mode nil
+   )
   )
 
 (provide 'init-code-basic)
