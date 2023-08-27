@@ -145,11 +145,14 @@
   ;; code review
   "b" 'pop-tag-mark
   "j" 'counsel-etags-find-tag-at-point
+  "g" 'avy-goto-char-timer
+  "l" 'avy-goto-line
   )
 
 
 (+general-global-menu! "edit" "e"
   "y" 'avy-copy-line
+  "Y" 'avy-copy-region
   "d" 'kill-whole-line
   "f" 'astyle-region
   "h" 'hippie-expand

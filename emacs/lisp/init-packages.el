@@ -162,5 +162,7 @@
   (rainbow-delimiters-mode t)
   )
 
+(use-package avy)
+
 
 (provide 'init-packages)
