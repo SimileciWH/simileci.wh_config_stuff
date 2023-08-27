@@ -95,7 +95,7 @@
 (require 'crosshairs)
 (crosshairs-mode t)
 (setq toggle-crosshairs-when-idle 0.1)
-(set-face-background 'hl-line "#98fb98")
+(set-face-background 'hl-line "#696969")
 (set-face-attribute 'col-highlight nil :inherit 'hl-line :background)
 
 

@@ -10,7 +10,7 @@
 
   (custom-set-faces
    '(tab-bar ((t (:inherit mode-line))))
-   '(tab-bar-tab ((t (:inherit mode-line :foreground "blue"))))
+   '(tab-bar-tab ((t (:inherit mode-line :foreground "red"))))
    '(tab-bar-tab-inactive ((t (:inherit mode-line-inactive :foreground "gray")))))
 
   (defvar ct/circle-numbers-alist
