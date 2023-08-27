@@ -37,6 +37,8 @@ emacs/lisp/.DS_Store
 
 *.el~
 
+*.~undo-tree~
+
 
 
 
