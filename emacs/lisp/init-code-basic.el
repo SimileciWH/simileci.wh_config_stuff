@@ -57,4 +57,8 @@
 ;;               tab-width 4
 ;;               indent-tabs-mode t)
 
+(use-package flycheck
+  :config
+  (global-flycheck-mode)
+  )
 (provide 'init-code-basic)
