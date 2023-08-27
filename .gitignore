@@ -28,3 +28,15 @@ emcas_Key/
 tabbox/
 
 espansoCfg/
+
+.DS_Store
+
+emacs/.DS_Store
+
+emacs/lisp/.DS_Store
+
+*.el~
+
+
+
+

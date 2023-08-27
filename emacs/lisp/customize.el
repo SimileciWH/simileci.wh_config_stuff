@@ -11,7 +11,20 @@
  '(global-display-line-numbers-mode t)
  '(linum-format 'dynamic t)
  '(package-selected-packages
-   '(rainbow-delimiters dashboard mwim aweshell multiple-cursors hl-column hl-cloumn col-highlight vline hl-line+ all-the-icons treemacs-tab-bar treemacs-magit treemacs-nerd-icons treemacs imenu-list general counsel-etags eglot nerd-icons-ivy-rich doom-themes consult-eglot tabspaces move-lines resize-window ace-window window-nmbering windows-nmbering popper treesit-auto highlight-global quelpa-use-package quelpa symbol-overlay :current-test expand-region iedit nerd-icons-completion :emacs quickrun nerd-icons doom-modeline-now-playing doom-modelline doom-modeline restart-emacs use-package wgrep embark-consult annotate which-key consult embark marginalia orderless vertico keycast company))
+   '(flycheck yasnippet-snippets yasnippet rainbow-delimiters dashboard
+	      mwim aweshell multiple-cursors hl-column hl-cloumn
+	      col-highlight vline hl-line+ all-the-icons
+	      treemacs-tab-bar treemacs-magit treemacs-nerd-icons
+	      treemacs imenu-list general counsel-etags eglot
+	      nerd-icons-ivy-rich doom-themes consult-eglot tabspaces
+	      move-lines resize-window ace-window window-nmbering
+	      windows-nmbering popper treesit-auto highlight-global
+	      quelpa-use-package quelpa symbol-overlay :current-test
+	      expand-region iedit nerd-icons-completion :emacs
+	      quickrun nerd-icons doom-modeline-now-playing
+	      doom-modelline doom-modeline restart-emacs use-package
+	      wgrep embark-consult annotate which-key consult embark
+	      marginalia orderless vertico keycast company))
  '(size-indication-mode t)
  '(tool-bar-mode nil)
  '(truncate-partial-width-windows t))
