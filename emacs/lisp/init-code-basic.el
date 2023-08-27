@@ -58,7 +58,10 @@
 ;;               indent-tabs-mode t)
 
 (use-package flycheck
+  :hook
+  (prog-mode . flycheck-mode)
   :config
-  (global-flycheck-mode)
+  ;; (global-flycheck-mode)
   )
+
 (provide 'init-code-basic)
