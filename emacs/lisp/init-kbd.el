@@ -152,6 +152,7 @@
   "y" 'avy-copy-line
   "d" 'kill-whole-line
   "f" 'astyle-region
+  "h" 'hippie-expand
   "k" 'h_wang/kill-cur-line-string
   "/" 'h_wang/insert-new-line-next
   "?" 'h_wang/insert-new-line-previous
