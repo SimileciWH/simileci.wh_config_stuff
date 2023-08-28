@@ -39,6 +39,13 @@ emacs/lisp/.DS_Store
 
 *.~undo-tree~
 
+.tags*
+
+TAGS
+
+project-todo.md
+
+project-todo.org
 
 
 
