@@ -14,22 +14,25 @@
     (advice-add #'markdown--style-map-prompt   :override #'ignore)
     )
   )
-  ;; Preview via `grip'
-  ;; Install: pip install grip
-  ;; (use-package grip-mode
-  ;;   :defines org-mode-map
-  ;;   :hook ((markdown-mode org-mode) . grip-mode)
-  ;;   :init
-  ;;   (setq
-  ;;    grip-update-after-change nil
-  ;;    ;; grip-preview-use-webkit t
-  ;;    )
-  ;;   (when-let ((credential (auth-source-user-and-password "api.github.com")))
-  ;;     (setq grip-github-user (car credential)
-  ;;           grip-github-password (cadr credential)
-  ;; 	    )
-  ;;     )
-;;   )
+
+(use-package edit-indirect)
+
+;; Preview via `grip'
+;; Install: pip install grip
+(use-package grip-mode
+  :defines org-mode-map
+  ;; :hook ((markdown-mode org-mode) . grip-mode)
+  :init
+  (setq
+   grip-update-after-change nil
+   grip-preview-use-webkit t
+   )
+  (when-let ((credential (auth-source-user-and-password "api.github.com")))
+    (setq grip-github-user (car credential)
+          grip-github-password (cadr credential)
+	  )
+    )
+  )
 
 ;; Table of contents
 (use-package markdown-toc
