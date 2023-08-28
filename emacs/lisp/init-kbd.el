@@ -35,11 +35,11 @@
 
 (use-package which-key
   :init
-  (setq which-key_idle-delay 0.01)
+  (setq which-key_idle-delay 1)
   :config
   (which-key-mode t)
   )
-
+(which-key-setup-side-window-bottom)
 (use-package general
   :init
   (general-create-definer my-global-definer
@@ -138,20 +138,23 @@
   "a" 'annotate-annotate
   "k" 'annotate-delete-annotation
   "s" 'annotate-show-annotation-summary
-  "[" 'annotate-goto-previous-annotation
   "S" 'tabspaces-save-session
-  "]" 'annotate-goto-next-annotation
   "h" 'symbol-overlay-put
+  "c" 'symbol-overlay-remove-all
+  )
+(+general-global-menu! "navigation" "n"
+  "[" 'annotate-goto-previous-annotation
+  "]" 'annotate-goto-next-annotation
   "n" 'symbol-overlay-jump-next
   "p" 'symbol-overlay-jump-prev
   "N" 'symbol-overlay-switch-forward
   "P" 'symbol-overlay-switch-backward
-  "c" 'symbol-overlay-remove-all
   ;; code review
   "b" 'pop-tag-mark
   "j" 'counsel-etags-find-tag-at-point
   "g" 'avy-goto-char-timer
   "l" 'avy-goto-line
+
   )
 
 
@@ -235,6 +238,7 @@
   )
 
 (+general-global-menu! "bookmarks" "k"
+  "s" 'bookmark-set
   "j" 'counsel-bookmark  ;;create or jump
   "n" 'bookmark-rename
   "d" 'bookmark-delete
