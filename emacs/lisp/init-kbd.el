@@ -154,7 +154,8 @@
   "j" 'counsel-etags-find-tag-at-point
   "g" 'avy-goto-char-timer
   "l" 'avy-goto-line
-
+  "e" 'c-end-of-defun
+  "a" 'c-beginning-of-defun
   )
 
 
