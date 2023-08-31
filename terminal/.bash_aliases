@@ -1,6 +1,6 @@
 echo "load bash_aliases"
 
-if [[ TRUE -eq ${is_window} ]]; then
+if [[ TRUE == ${is_window} ]]; then
 	case "$TERM" in
 	xterm*)
 		# The following programs are known to require a Win32 Console
@@ -16,7 +16,7 @@ if [[ TRUE -eq ${is_window} ]]; then
 		;;
 	esac
 
-elif [[ TRUE -eq ${is_macos} ]]; then
+elif [[ TRUE == ${is_macos} ]]; then
 	# homebrew
 	alias bc='brew install --cask'
 	alias bf='brew install'

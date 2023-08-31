@@ -1,22 +1,22 @@
-is_window=TRUE
-is_macos=FALSE
+is_window=FALSE
+is_macos=TRUE
 is_linux=FALSE
 
 echo "load bash_variables"
 
-if [[ TRUE -eq ${is_window} ]]; then
+if [[ TRUE == ${is_window} ]]; then
 	echo "we are in window!"
 	OneDrive_PATH="/e/NewE/OneDrive/WinMacSwapStuff"
 	workspace_PATH="/d/work_space"
 	espanso_PATH="/c/Users/PC_SSD_FW1/AppData/Roaming/espanso"
 	bash_profile=".bash_profile"
-elif [[ TRUE -eq ${is_macos} ]]; then
+elif [[ TRUE == ${is_macos} ]]; then
 	echo "we are in macos!"
 	OneDrive_PATH="/Volumes/SS980/SWStuff/OneDrive/WinMacSwapStuff"
 	workspace_PATH="/Volumes/SS980/work_space"
 	espanso_PATH="/Users/simileciwh/Library/Application\ Support/espanso"
 	bash_profile=".zshrc"
-elif [[ TRUE -eq ${is_linux} ]]; then
+elif [[ TRUE == ${is_linux} ]]; then
 	echo "we are in linux!"
 
 fi
@@ -29,6 +29,6 @@ fi
 
 
 ## auto run AHK
-if [[ TRUE -eq ${is_window} ]]; then
+if [[ TRUE == ${is_window} ]]; then
 AutoHotkeyUX.exe ${OneDrive_PATH}/AHK/MainAHK.ahk &
 fi
