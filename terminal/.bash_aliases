@@ -44,10 +44,8 @@ fi
 # creates his/her own .bashrc/.bash_profile
 
 # --show-control-chars: help showing Korean or accented characters
-alias ls='ls -F --color=auto --show-control-chars'
+alias ls='ls -F --color=auto'
 alias ll='ls -all'
-alias hd='help -d'
-alias hm='help -m'
 alias his='history'
 alias clr='clear'
 
@@ -55,7 +53,7 @@ alias clr='clear'
 alias st='subl'
 alias sm='smerge'
 
-alias salias='source ${OneDrive_PATH}/aliases/.bash_aliases'
+alias salias='source ${OneDrive_PATH}/terminal/.bash_aliases'
 alias spf='source ~/${bash_profile}'
 alias epf='subl ~/${bash_profile}'
 
