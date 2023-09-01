@@ -22,20 +22,20 @@
 (setq use-package-always-ensure t)
 
 ;; can install from github
-(use-package quelpa)
+;; (use-package quelpa)
 
-(unless (package-installed-p 'quelpa-use-package)
-  (quelpa
-   '(quelpa-use-package
-     :fetcher git
-     :url "https://github.com/quelpa/quelpa-use-package.git"))
-  )
+;; (unless (package-installed-p 'quelpa-use-package)
+;;   (quelpa
+;;    '(quelpa-use-package
+;;      :fetcher git
+;;      :url "https://github.com/quelpa/quelpa-use-package.git"))
+;;   )
 
-(use-package quelpa-use-package
-  :demand t
-  :init
-  (setq quelpa-use-package-inhibit-loading-quelpa t)
-  )
+;; (use-package quelpa-use-package
+;;   :demand t
+;;   :init
+;;   (setq quelpa-use-package-inhibit-loading-quelpa t)
+;;   )
 
 (require 'aweshell)
 (setq eshell-up-ignore-case nil
@@ -60,13 +60,14 @@
 
 (use-package nerd-icons)
 
-
-(use-package keycast
-  :init
-  (add-to-list 'global-mode-string '("" keycast-mode-line))
-  :config
-  (keycast-mode-line-mode t)
-  )
+(unless *is-linux*
+  (use-package keycast
+    :init
+    (add-to-list 'global-mode-string '("" keycast-mode-line))
+    :config
+    (keycast-mode-line-mode t)
+    )
+)
 
 (use-package doom-modeline
   :config

@@ -1,7 +1,3 @@
-is_window=FALSE
-is_macos=TRUE
-is_linux=FALSE
-
 echo "load bash_variables"
 
 if [[ TRUE == ${is_window} ]]; then
@@ -18,7 +14,10 @@ elif [[ TRUE == ${is_macos} ]]; then
 	bash_profile=".zshrc"
 elif [[ TRUE == ${is_linux} ]]; then
 	echo "we are in linux!"
-
+	OneDrive_PATH="/mnt/e/NewE/OneDrive/WinMacSwapStuff"
+	workspace_PATH="/mnt/d/work_space"
+	# espanso_PATH="/Users/simileciwh/Library/Application\ Support/espanso"
+	bash_profile=".bashrc"
 fi
 
 
