@@ -13,30 +13,34 @@
     :default "c")
     )
 
-(use-package treesit-auto
-  :init
-  (setq treesit-auto-install 'prompt
-	treesit-font-lock-level 4
-	;; treesit-extra-load-path "~/.emacs.d/tree-sitter"
-	)
-  :config
-  ;; (global-treesit-auto-mode)
- )
-
-(use-package eglot
-  :hook ((prog-mode . (lambda ()
-                        (unless (derived-mode-p 'emacs-lisp-mode 'lisp-mode 'makefile-mode 'snippet-mode)
-                          (eglot-ensure))))
-         ((markdown-mode yaml-mode yaml-ts-mode) . eglot-ensure)
-	 (c-mode . eglot-ensure)
-	 (c++-mode . eglot-ensure)
-	 )
-  :config
-  (use-package consult-eglot
-    :bind (:map eglot-mode-map
-		("C-M-." . consult-eglot-symbols))
+(unless *is-windows*
+  (if (version< "29.0" emacs-version)
+    (use-package treesit-auto
+      :init
+      (setq treesit-auto-install 'prompt
+	    treesit-font-lock-level 4
+	    ;; treesit-extra-load-path "~/.emacs.d/tree-sitter"
+	    )
+      :config
+      ;; (global-treesit-auto-mode)
+      )
     )
-  (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
+
+  (use-package eglot
+    :hook ((prog-mode . (lambda ()
+                          (unless (derived-mode-p 'emacs-lisp-mode 'lisp-mode 'makefile-mode 'snippet-mode)
+                            (eglot-ensure))))
+           ((markdown-mode yaml-mode yaml-ts-mode) . eglot-ensure)
+	   (c-mode . eglot-ensure)
+	   (c++-mode . eglot-ensure)
+	   )
+    :config
+    (use-package consult-eglot
+      :bind (:map eglot-mode-map
+		  ("C-M-." . consult-eglot-symbols))
+      )
+    (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
+    )
   )
 
 (use-package imenu-list
@@ -54,14 +58,17 @@
 ;;               tab-width 4
 ;;               indent-tabs-mode t)
 
-(use-package flycheck
-  :hook
-  (prog-mode . flycheck-mode)
-  :init
-  (setq
-   global-flycheck-mode nil
-   flycheck-mode nil
-   )
+(unless *is-windows*
+  (use-package flycheck
+    :hook
+    (prog-mode . flycheck-mode)
+    :init
+    (setq
+     global-flycheck-mode nil
+     flycheck-mode nil
+     )
+    )
   )
+
 
 (provide 'init-code-basic)
