@@ -129,6 +129,12 @@ function ,gpft {
 	git format-patch "$1"~1.."$2"
 }
 
+# git checkout
+alias gck='git.exe checkout -f'
+function ,gck {
+	git.exe checkout -f -B "$1" remotes/origin/"$1" 
+}
+
 # git applay
 alias gap='git.exe am --3way --ignore-space-change'
 
@@ -136,11 +142,11 @@ alias gap='git.exe am --3way --ignore-space-change'
 alias grmix='git reset --mixed'
 alias grhard='git reset --hard'
 
-# git checkout
-alias gck='git.exe checkout -f'
+
+
 
 # edit cmd
-alias ealias='subl ${OneDrive_PATH}/aliases/.bash_aliases'
+alias ealias='subl ${OneDrive_PATH}/terminal/.bash_aliases'
 
 # espanso
 alias eb='st   ${espanso_PATH}/match/base.yml'
