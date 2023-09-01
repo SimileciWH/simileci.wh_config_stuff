@@ -156,7 +156,10 @@
   "l" 'avy-goto-line
   "e" 'c-end-of-defun
   "a" 'c-beginning-of-defun
-  )
+  "h" 'hs-hide-block
+  "s" 'hs-show-block
+  "S" 'hs-show-all
+ )
 
 
 (+general-global-menu! "edit" "e"
