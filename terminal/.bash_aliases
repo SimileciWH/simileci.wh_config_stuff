@@ -130,7 +130,7 @@ function ,gpft {
 }
 
 # git checkout
-alias gck='git.exe checkout -f'
+alias	gb='git branch'
 function ,gck {
 	git.exe checkout -f -B "$1" remotes/origin/"$1" 
 }
