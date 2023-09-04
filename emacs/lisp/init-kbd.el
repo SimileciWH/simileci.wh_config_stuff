@@ -123,13 +123,13 @@
 
 (+general-global-menu! "search" "s"
   "m" 'consult-imenu
-  "g" 'consult-ripgrep
   "e" 'embark-export-write  ;;export consult-ripgrep result
   "s" 'my/search-project-for-symbol-at-point
-  "G" 'counsel-etags-grep
+  "t" 'counsel-etags-grep
   "d" 'counsel-etags-grep-current-directory
   "f" 'counsel-etags-list-tag-in-current-file
   ;; "" 'counsel-etags-grep-extra-arguments
+  "g" 'consult-ripgrep
   "p" 'project-find-regexp
   "r" 'counsel-projectile-rg
   )
@@ -154,7 +154,10 @@
   "j" 'counsel-etags-find-tag-at-point
   "g" 'avy-goto-char-timer
   "l" 'avy-goto-line
-  "e" 'c-end-of-defun
+  ";" 'evilmi-jump-items-native
+  "d" 'evilmi-delete-items
+  "r" 'evilmi-select-items
+  "e"' c-end-of-defun
   "a" 'c-beginning-of-defun
   "h" 'hs-hide-block
   "s" 'hs-show-block

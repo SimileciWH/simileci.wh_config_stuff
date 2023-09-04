@@ -59,7 +59,10 @@
 ;		    ('hi-pink . 0)
 ;		    ('hi-blue-b . 0)))))
 
-
+(use-package evil-matchit
+  :config
+  (setq global-evil-matchit-mode t)
+  )
 
 
 (provide 'init-coding-request)
