@@ -122,33 +122,31 @@
 
 
 (+general-global-menu! "search" "s"
-  "m" 'consult-imenu
   "e" 'embark-export-write  ;;export consult-ripgrep result
+  "fm" 'consult-imenu
+  "ff" 'counsel-etags-list-tag-in-current-file
   "s" 'my/search-project-for-symbol-at-point
-  "p" 'project-find-regexp
   "t" 'counsel-etags-grep
   "d" 'counsel-etags-grep-current-directory
-  "f" 'counsel-etags-list-tag-in-current-file
-  ;; "" 'counsel-etags-grep-extra-arguments
-  "g" 'consult-ripgrep
-  "r" 'counsel-projectile-rg
+  "wp" 'project-find-regexp
+  "wg" 'consult-ripgrep  ;; "" 'counsel-etags-grep-extra-arguments
   )
 
 (+general-global-menu! "view" "v"
-  "a" 'annotate-annotate
-  "k" 'annotate-delete-annotation
-  "s" 'annotate-show-annotation-summary
-  "S" 'tabspaces-save-session
-  "h" 'symbol-overlay-put
+  "aa" 'annotate-annotate
+  "ak" 'annotate-delete-annotation
+  "as" 'annotate-show-annotation-summary
+  "ap" 'annotate-goto-previous-annotation
+  "an" 'annotate-goto-next-annotation
+  "hn" 'symbol-overlay-jump-next
+  "hp" 'symbol-overlay-jump-prev
+  "hN" 'symbol-overlay-switch-forward
+  "hP" 'symbol-overlay-switch-backward
+  "p" 'symbol-overlay-put
   "c" 'symbol-overlay-remove-all
+  "s" 'tabspaces-save-session
   )
 (+general-global-menu! "navigation" "n"
-  "[" 'annotate-goto-previous-annotation
-  "]" 'annotate-goto-next-annotation
-  "n" 'symbol-overlay-jump-next
-  "p" 'symbol-overlay-jump-prev
-  "N" 'symbol-overlay-switch-forward
-  "P" 'symbol-overlay-switch-backward
   ;; code review
   "b" 'pop-tag-mark
   "j" 'counsel-etags-find-tag-at-point
