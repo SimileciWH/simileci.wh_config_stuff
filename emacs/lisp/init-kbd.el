@@ -125,12 +125,12 @@
   "m" 'consult-imenu
   "e" 'embark-export-write  ;;export consult-ripgrep result
   "s" 'my/search-project-for-symbol-at-point
+  "p" 'project-find-regexp
   "t" 'counsel-etags-grep
   "d" 'counsel-etags-grep-current-directory
   "f" 'counsel-etags-list-tag-in-current-file
   ;; "" 'counsel-etags-grep-extra-arguments
   "g" 'consult-ripgrep
-  "p" 'project-find-regexp
   "r" 'counsel-projectile-rg
   )
 
