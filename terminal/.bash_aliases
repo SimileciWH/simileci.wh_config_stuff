@@ -52,10 +52,14 @@ alias clr='clear'
 # tools
 alias st='subl'
 alias sm='smerge'
-
-alias salias='source ${OneDrive_PATH}/terminal/.bash_aliases'
+# source
+alias svar='source ${OneDrive_PATH}/terminal/.bash_variables'
 alias spf='source ~/${bash_profile}'
+
+# edit cmd
 alias epf='subl ~/${bash_profile}'
+alias ealias='subl ${OneDrive_PATH}/terminal/.bash_aliases'
+alias evar='subl ${OneDrive_PATH}/terminal/.bash_variables'
 
 # dir cmd
 alias ct='cd ${workspace_PATH}/test'
@@ -68,6 +72,7 @@ alias 32='cd ${workspace_PATH}/rl6468_pipeline_b/'
 alias 33='cd ${workspace_PATH}/rl6531_pipeline_b/'
 alias 71='cd ${workspace_PATH}/rl6817_pipeline_b/'
 alias em='cd ${OneDrive_PATH}/'
+alias linux='cd ${linux_kernal_PATH}/linux-6.5.1/'
 
 function mcd {
   mkdir $1 && cd $1;
@@ -145,8 +150,7 @@ alias grhard='git reset --hard'
 
 
 
-# edit cmd
-alias ealias='subl ${OneDrive_PATH}/terminal/.bash_aliases'
+
 
 # espanso
 alias eb='st   ${espanso_PATH}/match/base.yml'
