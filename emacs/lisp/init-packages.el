@@ -175,4 +175,7 @@
    )
   )
 
+(use-package detour)
+
+
 (provide 'init-packages)
