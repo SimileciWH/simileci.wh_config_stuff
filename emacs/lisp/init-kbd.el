@@ -128,8 +128,8 @@
   "s" 'my/search-project-for-symbol-at-point
   "t" 'counsel-etags-grep
   "d" 'counsel-etags-grep-current-directory
-  "wp" 'project-find-regexp
-  "wg" 'consult-ripgrep  ;; "" 'counsel-etags-grep-extra-arguments
+  "pp" 'project-find-regexp
+  "pg" 'consult-ripgrep  ;; "" 'counsel-etags-grep-extra-arguments
   )
 
 (+general-global-menu! "view" "v"
@@ -140,35 +140,44 @@
   "an" 'annotate-goto-next-annotation
   "hn" 'symbol-overlay-jump-next
   "hp" 'symbol-overlay-jump-prev
-  "hN" 'symbol-overlay-switch-forward
-  "hP" 'symbol-overlay-switch-backward
+  "h]" 'symbol-overlay-switch-forward
+  "h[" 'symbol-overlay-switch-backward
   "p" 'symbol-overlay-put
   "c" 'symbol-overlay-remove-all
   "s" 'tabspaces-save-session
+
+  ;; code hide
+  "fh" 'hs-hide-block
+  "fs" 'hs-show-block
+  "fa" 'hs-show-all
+  "mh" 'hide-ifdef-block
+  "ms" 'show-ifdef-block
+  "md" 'hide-ifdef-define
+  "mu" 'hide-ifdef-undef
+  "ma" 'show-ifdefs
   )
+
 (+general-global-menu! "navigation" "n"
   ;; code review
   "b" 'pop-tag-mark
   "j" 'counsel-etags-find-tag-at-point
+  "[" 'detour-mark ;;cursor idle > 1s auto mark
+  "]" 'detour-back
   "g" 'avy-goto-char-timer
   "l" 'avy-goto-line
+  "e"' c-end-of-defun
+  "a" 'c-beginning-of-defun
   ";" 'evilmi-jump-items-native
   "d" 'evilmi-delete-items
   "r" 'evilmi-select-items
-  "e"' c-end-of-defun
-  "a" 'c-beginning-of-defun
-  "h" 'hs-hide-block
-  "s" 'hs-show-block
-  "S" 'hs-show-all
  )
 
 
 (+general-global-menu! "edit" "e"
-  "y" 'avy-copy-line
-  "Y" 'avy-copy-region
-  "d" 'kill-whole-line
-  "f" 'astyle-region
+  "cl" 'avy-copy-line
+  "cr" 'avy-copy-region
   "h" 'hippie-expand
+  "d" 'kill-whole-line
   "k" 'h_wang/kill-cur-line-string
   "/" 'h_wang/insert-new-line-next
   "?" 'h_wang/insert-new-line-previous
@@ -178,8 +187,8 @@
   "a" 'mc/mark-all-like-this
   "n" 'mc/mark-next-like-this
   "w" 'mc/mark-next-like-this-word  ;;a word
-  "q" 'mc/mark-next-like-this-symbol ;; a sentence
-  "c" 'mc/mark-next-word-like-this  ;; a char
+  "s" 'mc/mark-next-like-this-symbol ;; a sentence
+  ;; "c" 'mc/mark-next-word-like-this  ;; a char
   "Q" 'mc/mark-next-symbol-like-this
   ;; "" 'mc/mark-previous-like-this
   ;; "" 'mc/mark-previous-like-this-word
@@ -240,6 +249,8 @@
   "u" 'counsel-etags-update-tags-force
   "r" 'quickrun
   "w" 'resize-window
+  "f" 'astyle-region
+
   )
 
 (+general-global-menu! "bookmarks" "k"
