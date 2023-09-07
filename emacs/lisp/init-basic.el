@@ -99,4 +99,5 @@
 (set-face-attribute 'col-highlight nil :inherit 'hl-line :background)
 
 
+
 (provide 'init-basic)

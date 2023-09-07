@@ -159,8 +159,12 @@
   )
 
 (use-package rainbow-delimiters
-  :config
-  (rainbow-delimiters-mode t)
+  :hook (
+	 (prog-mode . rainbow-delimiters-mode)
+	 (emacs-lisp-mode . rainbow-delimiters-mode)
+	 )
+  :init
+  (setq rainbow-delimiters-mode t)
   )
 
 (use-package avy)
