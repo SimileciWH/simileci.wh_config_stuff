@@ -160,5 +160,7 @@ alias ecfg='st ${OneDrive_PATH}/espansoCfg/SSDCfg.yml'
 alias ers='espansod restart'
 
 # http proxy
-alias proxy='export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890'
+alias proxy_clash='export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890'
+alias proxy_mono='export https_proxy=http://127.0.0.1:8118;export http_proxy=http://127.0.0.1:8118'
 
+export https_proxy=http://127.0.0.1:8118;export http_proxy=http://127.0.0.1:8118
