@@ -47,6 +47,11 @@
     :prefix "C-SPC"
     :non-normal-prefix "C-SPC"
     )
+  (general-create-definer global-org-mode-definer
+    :keymaps 'override
+    :prefix "C-o"
+    :non-normal-prefix "C-o"
+    )
   (general-create-definer global-definer
     :prefix "C-c"
     )
@@ -57,6 +62,18 @@
     `(progn
        (general-create-definer ,(intern (concat "+general-global-" name))
 	 :wrapping global-definer
+	 :prefix-map ',(intern (concat "+general-global-" name "-map"))
+	 :infix ,infix-key
+	 :wk-full-keys nil
+	 "" '(:ignore t :which-key ,name))
+       (,(intern (concat "+general-global-" name))
+	,@body)))
+  (defmacro +general-global-menu-org-mode! (name infix-key &rest body)
+    "Create a definer named +general-global-NAME wrapping global-definer.Create prefix map: +general-global-NAME. Prefix bindings in BODY with INFIX-KEY."
+    (declare (indent 2))
+    `(progn
+       (general-create-definer ,(intern (concat "+general-global-" name))
+	 :wrapping global-org-mode-definer
 	 :prefix-map ',(intern (concat "+general-global-" name "-map"))
 	 :infix ,infix-key
 	 :wk-full-keys nil
@@ -276,6 +293,36 @@
   "P" 'markdown-outline-previous-same-level
   )
 
+(global-org-mode-definer
+ "/" 'org-todo
+ "b" 'org-insert-todo-heading
+ "x" 'org-toggle-checkbox
+ "s" 'org-set-property
+ "p" 'org-priorities
+ "t" 'org-set-tags-command
+ 
+ "o" 'org-toggle-ordered-property
+ )
 
+(+general-global-menu-org-mode! "Hyperlinks" "l"
+  "l" 'org-insert-link
+  "o" 'org-open-at-point
+  "s" 'org-mark-ring-push
+  "g" 'org-mark-ring-goto
+  "n" 'org-next-link
+  "p" 'org-previous-link
+  )
+
+(+general-global-menu-org-mode! "TODO" "d"
+  "t" 'org-show-todo-tree
+  "[" 'org-priority-up
+  "]" 'org-priority-down
+  "u" 'org-update-statistics-cookies
+  )
+
+(+general-global-menu-org-mode! "SymbolTags" "T"
+  "v" 'org-tags-view
+  "s" 'org-match-sparse-tree
+  )
 
 (provide 'init-kbd)
