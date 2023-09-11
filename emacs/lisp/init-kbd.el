@@ -300,13 +300,11 @@
  "s" 'org-set-property
  "p" 'org-priorities
  "t" 'org-set-tags-command
- 
- "o" 'org-toggle-ordered-property
+ "o" 'org-open-at-point
  )
 
 (+general-global-menu-org-mode! "Hyperlinks" "l"
   "l" 'org-insert-link
-  "o" 'org-open-at-point
   "s" 'org-mark-ring-push
   "g" 'org-mark-ring-goto
   "n" 'org-next-link
@@ -322,7 +320,15 @@
 
 (+general-global-menu-org-mode! "SymbolTags" "T"
   "v" 'org-tags-view
-  "s" 'org-match-sparse-tree
+  "S" 'org-match-sparse-tree
+  ;; time stamps
+  "t" 'org-time-stamp
+  "T" 'org-time-stamp-inactive
+  "g" 'org-goto-calendar
+  "c" 'org-evaluate-time-range
+  "d" 'org-deadline
+  "s" 'org-schedule
+  
   )
 
 (provide 'init-kbd)
