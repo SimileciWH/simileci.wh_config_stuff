@@ -98,6 +98,6 @@
 (set-face-background 'hl-line "#104e8b")
 (set-face-attribute 'col-highlight nil :inherit 'hl-line :background)
 
-
+(setq server-mode t)
 
 (provide 'init-basic)
