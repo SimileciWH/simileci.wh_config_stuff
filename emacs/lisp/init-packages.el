@@ -188,10 +188,10 @@
   (dolist (hook '(text-mode-hook))
     (add-hook hook (lambda () (flyspell-mode 1)))
     )
-  if( *is-windows* 
-     (setq ispell-program-name "aspell")
-     (setq ispell-personal-dictionary "c:/msys64/mingw64/lib/aspell-0.60/en_GB")
-     )
+  (if *is-windows* 
+      (setq ispell-program-name "aspell")
+    (setq ispell-personal-dictionary "c:/msys64/mingw64/lib/aspell-0.60/en_GB")
+    )
   )
 (use-package fanyi
   :custom
