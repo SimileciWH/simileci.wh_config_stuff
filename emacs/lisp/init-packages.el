@@ -181,5 +181,30 @@
 
 (use-package detour)
 
+(use-package flyspell-correct)
+(use-package ispell
+  :ensure nil
+  :init
+  (dolist (hook '(text-mode-hook))
+    (add-hook hook (lambda () (flyspell-mode 1)))
+    )
+  if( *is-windows* 
+     (setq ispell-program-name "aspell")
+     (setq ispell-personal-dictionary "c:/msys64/mingw64/lib/aspell-0.60/en_GB")
+     )
+  )
+(use-package fanyi
+  :custom
+  (fanyi-providers '(;; 海词
+		     fanyi-haici-provider
+		     ;; 有道同义词词典
+		     fanyi-youdao-thesaurus-provider
+		     ;; Etymonline
+		     fanyi-etymon-provider
+		     ;; Longman
+		     ;; fanyi-longman-provider)
+		     ))
+  )
+  
 
 (provide 'init-packages)
