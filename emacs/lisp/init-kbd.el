@@ -295,11 +295,13 @@
 
 (global-org-mode-definer
  "/" 'org-todo
+ "a" 'org-agenda
+ "c" 'org-capture
  "b" 'org-insert-todo-heading
  "x" 'org-toggle-checkbox
  "s" 'org-set-property
  "p" 'org-priorities
- "t" 'org-set-tags-command
+ "'" 'org-set-tags-command
  "o" 'org-open-at-point
  )
 
@@ -318,7 +320,7 @@
   "u" 'org-update-statistics-cookies
   )
 
-(+general-global-menu-org-mode! "SymbolTags" "T"
+(+general-global-menu-org-mode! "SymbolTags" "t"
   "v" 'org-tags-view
   "S" 'org-match-sparse-tree
   ;; time stamps
