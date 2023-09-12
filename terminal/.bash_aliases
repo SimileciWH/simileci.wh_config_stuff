@@ -50,6 +50,8 @@ alias his='history'
 alias clr='clear'
 
 # tools
+alias startemacs='emacs --daemon'
+alias emacsclient='emacsclient --create-frame --alternate-editor=""'
 alias st='subl'
 alias sm='smerge'
 # source
