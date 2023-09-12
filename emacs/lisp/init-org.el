@@ -4,9 +4,18 @@
 (use-package org
   :ensure nil
   :init
-  (setq org-directory "/Volumes/SS980/SWStuff/OneDrive/WinMacSwapStuff/org_dir"
-	org-enforce-todo-dependencies t
+  ;; . is reprenst for org-directory
+  (setq org-directory (concat  *WinMac-PATH* "/org_dir")
+	org-agenda-files '("./org_mode_study.org")
+	)
+  (setq org-capture-templates
+	'(("t" "Todo" entry (file+headline "./org_mode_study.org" "Workspace")
+	   "* TODO [#5] %?\n  %i\n %U"
+	   :empty-lines 1))
+	)
+  (setq	org-enforce-todo-dependencies t
 	org-enforce-todo-checkbox-dependencies t
+	org-agenda-span 'day
 	org-log-done 'time
 	;; Tags setting
 	org-use-tag-inheritance nil
@@ -87,6 +96,12 @@
 
     )
 
-
+(use-package org-contrib
+  :pin nongnu
+  :config
+  (require 'org-checklist)
+  ;; need repeat task and properties
+  (setq org-log-into-drawer t)
+  )
 
 (provide 'init-org)
