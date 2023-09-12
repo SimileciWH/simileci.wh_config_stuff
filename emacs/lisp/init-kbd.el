@@ -141,6 +141,7 @@
 (+general-global-menu! "search" "s"
   "e" 'embark-export-write  ;;export consult-ripgrep result
   "fm" 'consult-imenu
+  "f/" 'consult-imenu-multi
   "ff" 'counsel-etags-list-tag-in-current-file
   "s" 'my/search-project-for-symbol-at-point
   "t" 'counsel-etags-grep

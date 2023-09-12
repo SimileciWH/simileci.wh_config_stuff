@@ -25,7 +25,8 @@ supports exporting consult-grep to wgrep, file to wdeired, and consult-location 
   (if (use-region-p)
       (progn
 	(consult-ripgrep (project-root (project-current))
-			 (buffer-substring (region-beginning) (region-end))))))
+			 (buffer-substring (region-beginning) (region-end)))))
+  )
 
 
 

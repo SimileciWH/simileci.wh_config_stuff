@@ -3,9 +3,11 @@
 (defconst *is-windows* (or (eq system-type 'ms-dos) (eq system-type 'windows-nt)))
 (cond  (*is-mac*
 	(defconst *WinMac-PATH* "/Volumes/SS980/SWStuff/OneDrive/WinMacSwapStuff")
+	(defconst *work-space-PATH* "/Volumes/SS980/work_space")
 	)
        (*is-windows*
 	(defconst *WinMac-PATH* "e:/NewE/OneDrive/WinMacSwapStuff")
+	(defconst *work-space-PATH* "d:/work_space")
 	)
        (t "need check for linux"
 
