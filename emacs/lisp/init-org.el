@@ -6,12 +6,23 @@
   :init
   ;; . is reprenst for org-directory
   (setq org-directory (concat  *WinMac-PATH* "/org_dir")
-	org-agenda-files '("./org_mode_study.org")
+	org-agenda-files (directory-files (concat org-directory "/agenda") directory-files-no-dot-files-regexp)
 	)
   (setq org-capture-templates
-	'(("t" "Todo" entry (file+headline "./org_mode_study.org" "Workspace")
+	'(
+	  ("1" "Important&Urgency" entry (file "./agenda/1_important_and_urgency.todo.org")
 	   "* TODO [#5] %?\n  %i\n %U"
-	   :empty-lines 1))
+	   :empty-lines 1)
+	  ("2" "!Important&Urgency" entry (file "./agenda/2_not_important_but_urgency.todo.org")
+	   "* TODO [#5] %?\n  %i\n %U"
+	   :empty-lines 1)
+	  ("3" "Important&!Urgency" entry (file "./agenda/3_important_but_not_urgency.todo.org")
+	   "* TODO [#5] %?\n  %i\n %U"
+	   :empty-lines 1)
+	  ("4" "!Important&!Urgency" entry (file "./agenda/4_not_important_and_not_urgency.todo.org")
+	   "* TODO [#5] %?\n  %i\n %U"
+	   :empty-lines 1)
+	  )
 	)
   (setq	org-enforce-todo-dependencies t
 	org-enforce-todo-checkbox-dependencies t
