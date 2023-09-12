@@ -58,6 +58,8 @@
   :init (progn (setq column-number-mode t))
   )
 
+(setq backup-inhibited t)
+
 (use-package emacs
   :bind (
          ("C-=" . text-scale-increase)
