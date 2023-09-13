@@ -8,10 +8,8 @@
 	)
   (setq
    counsel-etags-update-interval 60
+   counsel-etags-ignore-config-files `(,(concat *WinMac-PATH* "/git/.gitignore"))
    )
-  (add-to-list 'counsel-etags-ignore-config-files
-	       (concat *WinMac-PATH* "/git/.gitignore")
-	       )
   
   :config
   ;; we need view build dir dont ignore
