@@ -6,7 +6,7 @@
   :init
   ;; . is reprenst for org-directory
   (setq org-directory (concat  *WinMac-PATH* "/org_dir")
-	org-agenda-files (directory-files (concat org-directory "/agenda") directory-files-no-dot-files-regexp)
+	org-agenda-files (list (concat org-directory "/agenda"))
 	)
   (setq org-capture-templates
 	'(
@@ -35,6 +35,7 @@
 	;;time stamps
 	org-deadline-warning-days 7
 	org-image-actual-width nil
+	
 	)
   (setq org-todo-keywords
 	'((sequence "TODO(t)" "|" "DONE(d!)")
@@ -75,6 +76,7 @@
     :hook (dired-mode . org-download-enable)
     :config
     (cond  (*is-mac*
+	    (setq org-download-screenshot-method "screencapture -i %s")
 
 	    )
 	   (*is-windows*
@@ -91,7 +93,6 @@
 
     (setq-default org-download-heading-lvl nil
 		  org-download-image-dir "./img"
-		  ;; org-download-screenshot-method "screencapture -i %s"
 		  org-download-screenshot-file (expand-file-name "screenshot.jpg" temporary-file-directory)
 		  )
 
