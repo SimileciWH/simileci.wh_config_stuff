@@ -301,7 +301,7 @@
  "b" 'org-insert-todo-heading
  "x" 'org-toggle-checkbox
  "s" 'org-set-property
- "p" 'org-priorities
+ "p" 'org-priority
  "'" 'org-set-tags-command
  "o" 'org-open-at-point
  )
