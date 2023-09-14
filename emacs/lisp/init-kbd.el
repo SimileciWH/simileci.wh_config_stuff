@@ -333,5 +333,11 @@
   "s" 'org-schedule
   
   )
+(+general-global-menu-org-mode! "Picture" "p"
+  "s" 'org-toggle-inline-images
+  "v" 'org-download-screenshot
+  "V" 'org-download-clipboard
+  )
+
 
 (provide 'init-kbd)
