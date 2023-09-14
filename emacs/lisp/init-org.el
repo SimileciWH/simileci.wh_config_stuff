@@ -1,6 +1,25 @@
 
 (setq org-return-follows-link t)
 
+(defun air-org-skip-subtree-if-priority (priority)
+  "Skip an agenda subtree if it has a priority of PRIORITY.
+
+PRIORITY may be one of the characters ?A, ?B, or ?C."
+  (let ((subtree-end (save-excursion (org-end-of-subtree t)))
+        (pri-value (* 1000 (- org-lowest-priority priority)))
+        (pri-current (org-get-priority (thing-at-point 'line t))))
+    (if (= pri-value pri-current)
+        subtree-end
+      nil))
+  )
+(defun air-org-skip-subtree-if-habit ()
+  "Skip an agenda entry if it has a STYLE property equal to \"habit\"."
+  (let ((subtree-end (save-excursion (org-end-of-subtree t))))
+    (if (string= (org-entry-get nil "STYLE") "habit")
+        subtree-end
+      nil))
+  )
+
 (use-package org
   :ensure nil
   :init
@@ -10,16 +29,16 @@
 	)
   (setq org-capture-templates
 	'(
-	  ("1" "Important&Urgency" entry (file "./agenda/1_important_and_urgency.todo.org")
+	  ("1" "IMPT&Urgency" entry (file "./agenda/1_IMPT_UGY.org")
 	   "* TODO [#5] %?\n  %i\n %U"
 	   :empty-lines 1)
-	  ("2" "!Important&Urgency" entry (file "./agenda/2_not_important_but_urgency.todo.org")
+	  ("2" "!IMPT&Urgency" entry (file "./agenda/2_Not_IMPT_UGY.org")
 	   "* TODO [#5] %?\n  %i\n %U"
 	   :empty-lines 1)
-	  ("3" "Important&!Urgency" entry (file "./agenda/3_important_but_not_urgency.todo.org")
+	  ("3" "IMPT&!Urgency" entry (file "./agenda/3_IMPT_Not_UGY.org")
 	   "* TODO [#5] %?\n  %i\n %U"
 	   :empty-lines 1)
-	  ("4" "!Important&!Urgency" entry (file "./agenda/4_not_important_and_not_urgency.todo.org")
+	  ("4" "!IMPT&!Urgency" entry (file "./agenda/4_Not_IMPT_Not_UGY.org")
 	   "* TODO [#5] %?\n  %i\n %U"
 	   :empty-lines 1)
 	  )
@@ -35,31 +54,49 @@
 	;;time stamps
 	org-deadline-warning-days 7
 	org-image-actual-width nil
-	
 	)
   (setq org-todo-keywords
 	'((sequence "TODO(t)" "|" "DONE(d!)")
-	  (type "cy_tang(c)" "yl_zhang(y)" "xg_yang(x)" "zq_zhu(z)" "|")
 	  (sequence "VERIFY(v)" "ASSIGN(a)" "|" "FIXED(f@/!)")
 	  (sequence "|" "SUSPEND(s@/!)" "CANCELED(c@)")
 
 	  )
 	)
   (setq org-todo-keyword-faces
-	'(("TODO" . org-warning) ("STARTED" . "yellow")
-          ("CANCELED" . (:foreground "blue" :weight bold))
-          ("SUSPEND" . (:foreground "blue" :weight nil))
-	  )
+	(quote (("TODO" :foreground "goldenrod1" :weight bold)
+		("DONE" :foreground "SpringGreen2" :weight bold)
+		("FIXED" :foreground "SpringGreen2" :weight nil)
+		("VERIFY" :foreground "Yellow" :weight bold)
+		("ASSIGN" :foreground "LightSalmon1" :weight bold)
+		("WAITING" :foreground "LightSalmon1" :weight bold)
+		("CANCELLED" :foreground "LavenderBlush4" :weight bold)
+		("MEETING" :foreground "IndianRed1" :weight bold)))
 	)
-
   (setq org-tag-alist '(("work") ("basic_skills") ("improve") ("meeting")
-			("learn") ("suspend") ("processing") ("waitting") ("pending") ("canceled") ("know")
-			("bash") ("c") ("elisp") ("spi") ("spic") ("fcv2") ("fcv3") ("ftl") ("llf") ("RDT") ("ROM") ("RISCV") ("MIPS") 
+			("learn") ("suspend") ("processing") ("waitting")
+			("pending") ("canceled") ("know")
+			
+			("bash") ("c") ("elisp") ("spi") ("spic") ("fcv2")
+			("fcv3") ("ftl") ("llf") ("RDT") ("ROM") ("RISCV") ("MIPS") 
+
 			("@customer") ("@WK") ("@XKR") ("@HJ")
-			("xg_yang") ("cy_tang") ("yl_zhang") ("zq_zhu") ("c_zhao") ("jl_jin") ("j_luo") ("h_wang")
+			("xg_yang") ("cy_tang") ("yl_zhang") ("zq_zhu")
+			("c_zhao") ("jl_jin") ("j_luo") ("h_wang")
 			
 			)
 	)
+  (setq org-agenda-custom-commands
+	'(("d" "Daily agenda and all TODOs"
+           ((tags "PRIORITY=\"A\""
+                  ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                   (org-agenda-overriding-header "High-priority unfinished tasks:")))
+            (agenda "" ((org-agenda-ndays 1)))
+            (alltodo ""
+                     ((org-agenda-skip-function '(or (air-org-skip-subtree-if-habit)
+                                                     (air-org-skip-subtree-if-priority ?A)
+                                                     (org-agenda-skip-if nil '(scheduled deadline))))
+                      (org-agenda-overriding-header "ALL normal priority tasks:"))))
+           ((org-agenda-compact-blocks t)))))
   :config
   (defun org-summary-todo (n-done n-not-done)
     "Switch entry to DONE when all subentries are done, to TODO otherwise."
