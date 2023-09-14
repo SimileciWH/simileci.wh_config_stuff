@@ -56,9 +56,9 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 	org-image-actual-width nil
 	)
   (setq org-todo-keywords
-	'((sequence "TODO(t)" "|" "DONE(d!)")
-	  (sequence "VERIFY(v)" "ASSIGN(a)" "|" "FIXED(f@/!)")
-	  (sequence "|" "SUSPEND(s@/!)" "CANCELED(c@)")
+	'((sequence "TODO(t)" "MEETING" "|" "DONE(d!)")
+	  (sequence "BUG(b@)" "REPORT(r!)" "VERIFY(v)" "ASSIGN(a)" "|" "FIXED(f@/!)")
+	  (sequence "|" "SUSPEND(s@/!)" "CANCELED(c@)" "WAITTING(w@/!)")
 
 	  )
 	)
@@ -70,8 +70,19 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 		("ASSIGN" :foreground "LightSalmon1" :weight bold)
 		("WAITING" :foreground "LightSalmon1" :weight bold)
 		("CANCELLED" :foreground "LavenderBlush4" :weight bold)
-		("MEETING" :foreground "IndianRed1" :weight bold)))
+		("MEETING" :foreground "IndianRed1" :weight bold))
+	       )
 	)
+  (setq org-todo-state-tags-triggers
+      (quote (("CANCELLED" ("CANCELLED" . t))
+              ("WAITING" ("WAITING" . t))
+              ("SUSPEND" ("WAITING") ("SUSPEND" . t))
+              (done ("WAITING") ("SUSPEND"))
+              ("TODO" ("WAITING") ("CANCELLED") ("SUSPEND"))
+              ("DONE" ("WAITING") ("CANCELLED") ("SUSPEND"))
+              ("FIXED" ("WAITING") ("CANCELLED") ("SUSPEND")))
+	     )
+      )
   (setq org-tag-alist '(("work") ("basic_skills") ("improve") ("meeting")
 			("learn") ("suspend") ("processing") ("waitting")
 			("pending") ("canceled") ("know")

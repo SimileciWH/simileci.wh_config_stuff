@@ -268,7 +268,8 @@
   "r" 'quickrun
   "w" 'resize-window
   "f" 'astyle-region
-
+  "c" 'yas-insert-snippet
+  "y" 'yas-new-snippet
   )
 
 (+general-global-menu! "bookmarks" "k"
