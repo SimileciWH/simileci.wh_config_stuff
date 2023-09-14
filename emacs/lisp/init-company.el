@@ -18,6 +18,7 @@
   :hook
   (prog-mode . yas-minor-mode)
   :config
+  (setq yas-global-mode t)
   (yas-reload-all)
   ;; add company-yasnippet to company-backends
   ;; (defun company-mode/backend-with-yas (backend)
