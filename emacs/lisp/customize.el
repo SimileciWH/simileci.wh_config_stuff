@@ -21,27 +21,28 @@
  '(global-display-line-numbers-mode t)
  '(linum-format 'dynamic t)
  '(package-selected-packages
-   '(org-roam-ui org-roam org-contrib fanyi flyspell-correct org-download
-		 detour evil-matchit treesit-auto
-		 color-identifiers-mode markdown-mode avy elpy
-		 edit-indirect gripi-mode markdown-toc grip-mode
-		 undo-tree lsp-treemacs treemacs-projectile lsp-ivy
-		 c++-mode counsel-projectile projectile avy--key-type
-		 yasnippet-snippets yasnippet rainbow-delimiters
-		 dashboard mwim aweshell multiple-cursors hl-column
-		 hl-cloumn col-highlight vline hl-line+ all-the-icons
-		 treemacs-tab-bar treemacs-magit treemacs-nerd-icons
-		 treemacs imenu-list general counsel-etags
-		 nerd-icons-ivy-rich doom-themes tabspaces move-lines
-		 resize-window ace-window window-nmbering
-		 windows-nmbering popper highlight-global
-		 quelpa-use-package quelpa symbol-overlay
-		 :current-test expand-region iedit
-		 nerd-icons-completion :emacs quickrun nerd-icons
-		 doom-modeline-now-playing doom-modelline
-		 doom-modeline restart-emacs use-package wgrep
-		 embark-consult annotate which-key consult embark
-		 marginalia orderless vertico keycast company))
+   '(benchmark-init org-roam-ui org-roam org-contrib fanyi
+		    flyspell-correct org-download detour evil-matchit
+		    treesit-auto color-identifiers-mode markdown-mode
+		    avy elpy edit-indirect gripi-mode markdown-toc
+		    grip-mode undo-tree lsp-treemacs
+		    treemacs-projectile lsp-ivy c++-mode
+		    counsel-projectile projectile avy--key-type
+		    yasnippet-snippets yasnippet rainbow-delimiters
+		    dashboard mwim aweshell multiple-cursors hl-column
+		    hl-cloumn col-highlight vline hl-line+
+		    all-the-icons treemacs-tab-bar treemacs-magit
+		    treemacs-nerd-icons treemacs imenu-list general
+		    counsel-etags nerd-icons-ivy-rich doom-themes
+		    tabspaces move-lines resize-window ace-window
+		    window-nmbering windows-nmbering popper
+		    highlight-global quelpa-use-package quelpa
+		    symbol-overlay :current-test expand-region iedit
+		    nerd-icons-completion :emacs quickrun nerd-icons
+		    doom-modeline-now-playing doom-modelline
+		    doom-modeline restart-emacs use-package wgrep
+		    embark-consult annotate which-key consult embark
+		    marginalia orderless vertico keycast company))
  '(size-indication-mode t)
  '(tool-bar-mode nil)
  '(truncate-partial-width-windows t))
