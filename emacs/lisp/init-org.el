@@ -154,4 +154,5 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
   (setq org-log-into-drawer t)
   )
 
+(require 'init-org-roma)
 (provide 'init-org)

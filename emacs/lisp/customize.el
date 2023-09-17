@@ -21,9 +21,10 @@
  '(global-display-line-numbers-mode t)
  '(linum-format 'dynamic t)
  '(package-selected-packages
-   '(org-contrib fanyi flyspell-correct org-download detour evil-matchit
-		 treesit-auto color-identifiers-mode markdown-mode avy
-		 elpy edit-indirect gripi-mode markdown-toc grip-mode
+   '(org-roam-ui org-roam org-contrib fanyi flyspell-correct org-download
+		 detour evil-matchit treesit-auto
+		 color-identifiers-mode markdown-mode avy elpy
+		 edit-indirect gripi-mode markdown-toc grip-mode
 		 undo-tree lsp-treemacs treemacs-projectile lsp-ivy
 		 c++-mode counsel-projectile projectile avy--key-type
 		 yasnippet-snippets yasnippet rainbow-delimiters

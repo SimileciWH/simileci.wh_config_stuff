@@ -294,6 +294,15 @@
   "N" 'markdown-outline-next-same-level
   "P" 'markdown-outline-previous-same-level
   )
+(+general-global-menu! "roam" "r"
+  "l" 'org-roam-buffer-toggle
+  "f" 'org-roam-node-find
+  "g" 'org-roam-graph
+  "i" 'org-roam-node-insert
+  "c" 'org-roam-capture
+  "j" 'org-roam-dailies-capture-today
+  "s" 'org-roam-ui-open
+  )
 
 (global-org-mode-definer
  "/" 'org-todo
