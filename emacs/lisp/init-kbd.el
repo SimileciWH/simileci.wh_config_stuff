@@ -295,15 +295,6 @@
   "N" 'markdown-outline-next-same-level
   "P" 'markdown-outline-previous-same-level
   )
-(+general-global-menu! "roam" "r"
-  "l" 'org-roam-buffer-toggle
-  "f" 'org-roam-node-find
-  "g" 'org-roam-graph
-  "i" 'org-roam-node-insert
-  "c" 'org-roam-capture
-  "j" 'org-roam-dailies-capture-today
-  "s" 'org-roam-ui-open
-  )
 
 (global-org-mode-definer
  "/" 'org-todo
@@ -316,6 +307,15 @@
  "'" 'org-set-tags-command
  "o" 'org-open-at-point
  )
+(+general-global-menu-org-mode! "roam" "r"
+  "l" 'org-roam-buffer-toggle
+  "f" 'org-roam-node-find
+  "g" 'org-roam-graph
+  "i" 'org-roam-node-insert
+  "c" 'org-roam-capture
+  "j" 'org-roam-dailies-capture-today
+  "s" 'org-roam-ui-open
+  )
 
 (+general-global-menu-org-mode! "Hyperlinks" "l"
   "l" 'org-insert-link
