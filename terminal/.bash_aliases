@@ -51,17 +51,17 @@ alias clr='clear'
 
 # tools
 alias startemacs='emacs --daemon'
-alias emacsclient='emacsclient --create-frame --alternate-editor=""'
-alias st='subl'
+alias emacsclient='emacsclient --reuse-frame --alternate-editor=""'
+# alias st='subl'
 alias sm='smerge'
 # source
 alias svar='source ${OneDrive_PATH}/terminal/.bash_variables'
 alias spf='source ~/${bash_profile}'
 
 # edit cmd
-alias epf='subl ~/${bash_profile}'
-alias ealias='subl ${OneDrive_PATH}/terminal/.bash_aliases'
-alias evar='subl ${OneDrive_PATH}/terminal/.bash_variables'
+alias epf='emacsclient ~/${bash_profile}'
+alias ealias='emacsclient ${OneDrive_PATH}/terminal/.bash_aliases'
+alias evar='emacsclient ${OneDrive_PATH}/terminal/.bash_variables'
 
 # dir cmd
 alias ct='cd ${workspace_PATH}/test'
@@ -155,10 +155,10 @@ alias grhard='git reset --hard'
 
 
 # espanso
-alias eb='st   ${espanso_PATH}/match/base.yml'
-alias ed='st   ${espanso_PATH}/config/default.yml'
-alias en='st   ${OneDrive_PATH}/espansoCfg/peopleName.yml'
-alias ecfg='st ${OneDrive_PATH}/espansoCfg/SSDCfg.yml'
+alias eb='emacsclient   ${espanso_PATH}/match/base.yml'
+alias ed='emacsclient   ${espanso_PATH}/config/default.yml'
+alias en='emacsclient   ${OneDrive_PATH}/espansoCfg/peopleName.yml'
+alias ecfg='emacsclient ${OneDrive_PATH}/espansoCfg/SSDCfg.yml'
 alias ers='espansod restart'
 
 # http proxy
