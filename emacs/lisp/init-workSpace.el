@@ -1,5 +1,6 @@
 (use-package tab-bar
   :ensure nil
+  :defer t
   :init
   (tab-bar-mode t)
   (setq tab-bar-new-tab-choice "*scratch*" ;; buffer to show in new tabs
@@ -46,6 +47,7 @@
   )
 
 (use-package tabspaces
+  :defer t
   ;; use this next line only if you also use straight, otherwise ignore it.
   :hook (after-init . tabspaces-mode) ;; use this only if you want the minor-mode loaded at startup.
   :commands (tabspaces-switch-or-create-workspace
