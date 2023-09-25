@@ -9,7 +9,7 @@ if [[ TRUE == ${is_window} ]]; then
 	bash_profile=".bash_profile"
 elif [[ TRUE == ${is_macos} ]]; then
 	echo "we are in macos!"
-	linux_kernal_PATH="\\wsl.localhost\Ubuntu-22.04\home\simileci\work_space"
+	linux_kernal_PATH="/Volumes/SS980/work_space/linux_kernel/"
 	OneDrive_PATH="/Volumes/SS980/SWStuff/OneDrive/WinMacSwapStuff"
 	workspace_PATH="/Volumes/SS980/work_space"
 	espanso_PATH="/Users/simileciwh/Library/Application\ Support/espanso"

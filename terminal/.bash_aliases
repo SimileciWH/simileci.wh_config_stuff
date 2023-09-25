@@ -74,7 +74,7 @@ alias 32='cd ${workspace_PATH}/rl6468_pipeline_b/'
 alias 33='cd ${workspace_PATH}/rl6531_pipeline_b/'
 alias 71='cd ${workspace_PATH}/rl6817_pipeline_b/'
 alias em='cd ${OneDrive_PATH}/'
-alias linux='cd ${linux_kernal_PATH}/linux-6.5.1/'
+alias linux='cd ${linux_kernal_PATH}/'
 
 function mcd {
   mkdir $1 && cd $1;
