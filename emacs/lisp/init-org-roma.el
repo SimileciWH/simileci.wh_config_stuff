@@ -25,4 +25,4 @@
   )
 
 
-(provide 'init-org-roma)
+(provide 'init-org-roam)
