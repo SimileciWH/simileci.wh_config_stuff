@@ -168,16 +168,6 @@
   )
 
 (use-package avy)
-(use-package undo-tree
-  :config
-  (setq
-   undo-tree-mode t
-   global-undo-tree-mode t
-   global-undo-tree-mode-buffers t
-   undo-tree-visualizer-diff t
-   undo-tree-visualizer-timestamps t
-   )
-  )
 
 (use-package detour)
 

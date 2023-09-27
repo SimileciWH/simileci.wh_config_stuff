@@ -1,3 +1,4 @@
+(require 'init-evil)
 ;;key binding set
 
 (cond  (*is-mac*
