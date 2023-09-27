@@ -68,18 +68,21 @@
          )
   :init
   (setq-default display-fill-column-indicator-character 83
-		display-fill-column-indicator-column 100
+				display-fill-column-indicator-column 100
+				indent-tabs-mode nil
+				tab-width 4
 
-    )
-    (setq display-line-numbers-type 'relative
-          ring-bell-function 'ignore
-          auto-save-default nil
-          make-backup-failes nil
-          
-          tab-always-indent 'complete
-	  inhibit-startup-message t
-
-    )
+				)
+  (setq display-line-numbers-type 'relative
+        ring-bell-function 'ignore
+        auto-save-default nil
+        make-backup-failes nil
+        tab-always-indent 'complete
+		inhibit-startup-message t
+		indent-tabs-mode nil
+		tab-width 4
+		;; c-basic-indent 4
+		)
     :config
     (electric-pair-mode t)
     (show-paren-mode t)
