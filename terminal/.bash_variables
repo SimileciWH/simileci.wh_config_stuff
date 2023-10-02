@@ -7,6 +7,13 @@ if [[ TRUE == ${is_window} ]]; then
 	workspace_PATH="/d/work_space"
 	espanso_PATH="/c/Users/PC_SSD_FW1/AppData/Roaming/espanso"
 	bash_profile=".bash_profile"
+elif [[ TRUE == ${is_cygwin} ]]; then
+	echo "we are in cygwin!"
+	linux_kernal_PATH="//wsl.localhost/Ubuntu-22.04/home/simileci/work_space"
+	OneDrive_PATH="/cygdrive/e/NewE/OneDrive/WinMacSwapStuff"
+	workspace_PATH="/cygdrive/d/work_space"
+	espanso_PATH="/cygdrive/c/Users/PC_SSD_FW1/AppData/Roaming/espanso"
+	bash_profile=".bash_profile"
 elif [[ TRUE == ${is_macos} ]]; then
 	echo "we are in macos!"
 	linux_kernal_PATH="/Volumes/SS980/work_space/linux_kernel/"
