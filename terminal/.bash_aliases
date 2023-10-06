@@ -81,6 +81,8 @@ function mcd {
 }
 
 # git cmd
+alias agent='eval "$(ssh-agent -s)"'
+alias agentgh='ssh-add ~/.ssh/github.id.ed25519'
 alias gs='git status'
 alias ga='git add'
 alias gcm='git commit -s -m'
