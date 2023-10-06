@@ -30,14 +30,13 @@ elif [[ TRUE == ${is_linux} ]]; then
 	bash_profile=".bashrc"
 fi
 
-
-
 if [ -f ${OneDrive_PATH}/terminal/.bash_aliases ]; then
     . ${OneDrive_PATH}/terminal/.bash_aliases
 fi
 
-
 ## auto run AHK
-if [[ TRUE == ${is_window} ]]; then
-AutoHotkeyUX.exe ${OneDrive_PATH}/AHK/MainAHK.ahk &
+if [[ TRUE == ${is_window} || TRUE == ${is_cygwin} ]]; then
+	cd ${OneDrive_PATH}/AHK/
+	AutoHotkeyUX.exe MainAHK.ahk &
+	cd ~
 fi
