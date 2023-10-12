@@ -14,5 +14,11 @@
 	  )
        
        )
+(defadvice align-regexp (around align-regexp-with-spaces activate)
+  (let ((old-indent-tabs-mode indent-tabs-mode))
+    (setq indent-tabs-mode nil)
+    ad-do-it
+    (setq indent-tabs-mode old-indent-tabs-mode))
+  )
 
 (provide 'init-const)
