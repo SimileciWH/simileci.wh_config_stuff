@@ -1,5 +1,6 @@
 
 (add-hook 'prog-mode-hook #'hs-minor-mode)
+(add-hook 'c-mode-hook #'hide-ifdef-mode)
 
 (use-package quickrun
     :commands (quickrun)
