@@ -7,10 +7,11 @@
 		    'counsel-etags-virtual-update-tags 'append 'local))
 	)
   (setq
+   tags-add-tables nil
    counsel-etags-update-interval 60
    counsel-etags-ignore-config-files `(,(concat *WinMac-PATH* "/git/.gitignore"))
    )
-  
+
   :config
   ;; we need view build dir dont ignore
   ;; (push "build" counsel-etags-ignore-directories)
@@ -20,7 +21,7 @@
     ;; counsel-etags-ignore-filenames supports wildcast
     (push "*.json" counsel-etags-ignore-filenames)
     )
-  
+
   (defun my-update-tags-file (tags-file)
     "Update TAGS-FILE."
     (when (memq major-mode '(prog-mode))
@@ -53,12 +54,11 @@
   (setq ivy-count-format "(%d/%d) "
 	ivy-re-builders-alist
 	'((t . ivy--regex-plus))
-	
+
 	)
   :config
   ;; (ivy-mode 1)
   )
-
 
 
 (provide 'init-counsel-etags)
