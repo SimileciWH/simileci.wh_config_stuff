@@ -1,4 +1,4 @@
-(define-key evil-insert-state-map (kbd "C-]") 'evil-normal-state)
+(define-key evil-insert-state-map (kbd "C-[") 'evil-normal-state)
 (define-key evil-normal-state-map (kbd "[ SPC") (lambda () (interactive) (evil-insert-newline-above) (forward-line)))
 (define-key evil-normal-state-map (kbd "] SPC") (lambda () (interactive) (evil-insert-newline-below) (forward-line -1)))
 
