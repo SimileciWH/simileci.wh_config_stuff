@@ -205,9 +205,9 @@ alias ers='espansod restart'
 # tags for emacs and neovim
 function ,tag {
 if [[ "emacs" == "$1" ]]; then
-    is_emacs=-e
+    is_emacs=tags_$1 -e
 elif [[ "vim" == "$1" ]]; then
-    is_emacs=
+    is_emacs=tags
 fi
 ctags \
   --exclude=+'*org' \
@@ -219,8 +219,7 @@ ctags \
   --exclude=+'*.bin' \
   --if0=yes \
   --totals=yes \
-  -f tags_$1 \
-  $is_emacs \
+  -f $is_emacs \
   -R *
 
 }
