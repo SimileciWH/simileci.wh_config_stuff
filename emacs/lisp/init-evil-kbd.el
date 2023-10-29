@@ -9,6 +9,18 @@
 
 (define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
 (define-key evil-visual-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
+(define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
+
+;; code review
+(define-key evil-normal-state-map (kbd "gr") 'xref-find-references)
+(define-key evil-normal-state-map (kbd "g-") 'xref-go-forward)
+(define-key evil-normal-state-map (kbd "g=") 'xref-go-back)
+
+(define-key evil-visual-state-map (kbd "gr") 'xref-find-references)
+(define-key evil-visual-state-map (kbd "g-") 'xref-go-forward)
+(define-key evil-visual-state-map (kbd "g=") 'xref-go-back)
+
+
 
 (evil-define-key 'normal dired-mode-map
   (kbd "<RET>") 'dired-find-alternate-file
