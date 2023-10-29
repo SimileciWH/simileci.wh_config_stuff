@@ -28,6 +28,14 @@ elif [[ TRUE == ${is_linux} ]]; then
 	workspace_PATH="/mnt/d/work_space"
 	# espanso_PATH="/Users/simileciwh/Library/Application\ Support/espanso"
 	bash_profile=".bashrc"
+elif [[ TRUE == ${is_linux_parallels} ]]; then
+	echo "we are in linux-parallels!"
+	linux_kernal_PATH="/media/psf/work_space"
+	OneDrive_PATH="/media/psf/WinMacSwapStuff"
+	workspace_PATH="/media/psf/work_space"
+	# espanso_PATH="/Users/simileciwh/Library/Application\ Support/espanso"
+	bash_profile=".bashrc"	
+	
 fi
 
 if [ -f ${OneDrive_PATH}/terminal/.bash_aliases ]; then
