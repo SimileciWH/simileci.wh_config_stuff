@@ -39,21 +39,21 @@ elif [[ TRUE == ${is_macos} ]]; then
 
   # http proxy
   alias proxy='
-  export https_proxy=http://127.0.0.1:7890 
-  export http_proxy=http://127.0.0.1:7890 
+  export https_proxy=http://127.0.0.1:7890
+  export http_proxy=http://127.0.0.1:7890
   export all_proxy=socks5://127.0.0.1:7890
   '
   alias unproxy='
   unset https_proxy
   unset http_proxy
-  unset all_proxy 
+  unset all_proxy
   '
   alias echoproxy='
   echo $https_proxy
   echo $http_proxy
   echo $all_proxy
   '
-elif [[ TRUE == ${is_linux} ]]; then
+elif [[ TRUE == ${is_linux} ]] && [[ TRUE == ${is_linux_parallels} ]]; then
   #http proxy
   export hostip=$(ip route | grep default | awk '{print $3}')
   export socks_hostport=7890
@@ -202,3 +202,25 @@ alias ecfg='emacsclient ${OneDrive_PATH}/espansoCfg/SSDCfg.yml'
 alias ers='espansod restart'
 
 
+# tags for emacs and neovim
+function ,tag {
+if [[ "emacs" == "$1" ]]; then
+    is_emacs=-e
+elif [[ "vim" == "$1" ]]; then
+    is_emacs=
+fi
+ctags \
+  --exclude=+'*org' \
+  --exclude=+'*.patch' \
+  --exclude=+'setting' \
+  --exclude=+'TAGS' \
+  --exclude=+'tags' \
+  --exclude=+'obj' \
+  --exclude=+'*.bin' \
+  --if0=yes \
+  --totals=yes \
+  -f tags_$1 \
+  $is_emacs \
+  -R *
+
+}
