@@ -9,6 +9,10 @@
     (defconst *WinMac-PATH* "e:/NewE/OneDrive/WinMacSwapStuff")
     (defconst *work-space-PATH* "d:/work_space")
     )
+       (*is-linux*
+    (defconst *WinMac-PATH* "/home/simileci-wh/WinMacSwapStuff")
+    (defconst *work-space-PATH* "/home/simileci-wh/work_space")
+    )
        (t "need check for linux"
 
       )
