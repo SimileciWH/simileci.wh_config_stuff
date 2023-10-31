@@ -53,7 +53,7 @@ elif [[ TRUE == ${is_macos} ]]; then
   echo $http_proxy
   echo $all_proxy
   '
-elif [[ TRUE == ${is_linux} ]] && [[ TRUE == ${is_linux_parallels} ]]; then
+elif [[ TRUE == ${is_linux} ]]; then
   #http proxy
   export hostip=$(ip route | grep default | awk '{print $3}')
   export socks_hostport=7890
@@ -205,9 +205,11 @@ alias ers='espansod restart'
 # tags for emacs and neovim
 function ,tag {
 if [[ "emacs" == "$1" ]]; then
-    is_emacs=tags_$1 -e
+    tagName=tags_$1
+    for_emacs=-e
 elif [[ "vim" == "$1" ]]; then
-    is_emacs=tags
+    tagName=tags
+    for_emacs=
 fi
 ctags \
   --exclude=+'*org' \
@@ -219,7 +221,8 @@ ctags \
   --exclude=+'*.bin' \
   --if0=yes \
   --totals=yes \
-  -f $is_emacs \
+  -f $tagName \
+  $for_emacs \
   -R *
 
 }
