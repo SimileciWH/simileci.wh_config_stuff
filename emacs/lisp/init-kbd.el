@@ -144,16 +144,18 @@
   )
 
 (+general-global-menu! "view" "v"
-  "aa" 'annotate-annotate
-  "ak" 'annotate-delete-annotation
-  "as" 'annotate-show-annotation-summary
-  "ap" 'annotate-goto-previous-annotation
-  "an" 'annotate-goto-next-annotation
-  "hn" 'symbol-overlay-jump-next
-  "hp" 'symbol-overlay-jump-prev
-  "h]" 'symbol-overlay-switch-forward
-  "h[" 'symbol-overlay-switch-backward
-  "p" 'symbol-overlay-put
+  "d" 'dired-jump-other-window
+  "a" 'annotate-annotate
+  "k" 'annotate-delete-annotation
+  "s" 'annotate-show-annotation-summary
+  "[" 'annotate-goto-previous-annotation
+  "S" 'tabspaces-save-session
+  "]" 'annotate-goto-next-annotation
+  "h" 'symbol-overlay-put
+  "n" 'symbol-overlay-jump-next
+  "p" 'symbol-overlay-jump-prev
+  "N" 'symbol-overlay-switch-forward
+  "P" 'symbol-overlay-switch-backward
   "c" 'symbol-overlay-remove-all
   "s" 'tabspaces-save-session
 
@@ -189,6 +191,8 @@
   "cr" 'avy-copy-region
   "h" 'hippie-expand
   "d" 'kill-whole-line
+  "f" 'astyle-region
+  "h" 'hippie-expand
   "k" 'h_wang/kill-cur-line-string
   "/" 'h_wang/insert-new-line-next
   "?" 'h_wang/insert-new-line-previous

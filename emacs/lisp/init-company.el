@@ -18,8 +18,6 @@
   :hook
   (prog-mode . yas-minor-mode)
   :config
-  (setq yas-snippet-dirs `(, (concat *WinMac-PATH* "/emacs/snippets/")))
-  (yas-global-mode 1)
   (yas-reload-all)
   ;; add company-yasnippet to company-backends
   ;; (defun company-mode/backend-with-yas (backend)

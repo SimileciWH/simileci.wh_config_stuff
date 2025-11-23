@@ -12,7 +12,7 @@
         treemacs-follow-after-init       t
         treemacs-width                   30
         treemacs-no-png-images           nil
-        treemacs-indent-guide-mode t
+	treemacs-indent-guide-mode t
 	)
 
   (treemacs-follow-mode t)
@@ -42,18 +42,6 @@
   (use-package treemacs-tab-bar
     :demand t
     :config (treemacs-set-scope-type 'Tabs))
-
   )
-(use-package treemacs-projectile
-  :after (treemacs projectile)
-  )
-
-;; (use-package lsp-treemacs
-;;   :after (treemacs lsp)
-;;   :config
-;;   (setq
-;;    lsp-treemacs-sync-mode 1
-;;    )
-;;   )
 
 (provide 'init-treemacs)

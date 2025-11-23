@@ -1,6 +1,5 @@
 (use-package tab-bar
   :ensure nil
-  :defer t
   :init
   (tab-bar-mode t)
   (setq tab-bar-new-tab-choice "*scratch*" ;; buffer to show in new tabs
@@ -11,7 +10,7 @@
 
   (custom-set-faces
    '(tab-bar ((t (:inherit mode-line))))
-   '(tab-bar-tab ((t (:inherit mode-line :foreground "red"))))
+   '(tab-bar-tab ((t (:inherit mode-line :foreground "blue"))))
    '(tab-bar-tab-inactive ((t (:inherit mode-line-inactive :foreground "gray")))))
 
   (defvar ct/circle-numbers-alist
@@ -47,7 +46,6 @@
   )
 
 (use-package tabspaces
-  :defer t
   ;; use this next line only if you also use straight, otherwise ignore it.
   :hook (after-init . tabspaces-mode) ;; use this only if you want the minor-mode loaded at startup.
   :commands (tabspaces-switch-or-create-workspace
@@ -82,10 +80,6 @@
       "Set workspace buffer list for consult-buffer.")
     (add-to-list 'consult-buffer-sources 'consult--source-workspace)
     )
-  )
-
-(use-package window-numbering
-  :hook (after-init . window-numbering-mode)
   )
 
 (provide 'init-workSpace)

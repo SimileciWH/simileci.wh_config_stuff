@@ -159,6 +159,33 @@
   )
 
 (use-package rainbow-delimiters
+  :config
+  (rainbow-delimiters-mode t)
+  )
+
+(use-package dashboard
+  :config
+  (setq
+   dashboard-banner-logo-title "Welcome to Emacs!"
+   dashboard-startup-banner 'official
+   dashboard-center-content t
+   dashboard-display-icons-p t
+   dashboard-set-navigator t
+   dashboard-set-init-info t
+   dashboard-icon-type 'nerd-icons
+   dashboard-items '((recents  . 5)
+                     (bookmarks . 5)
+                     (projects . 5)
+                     ;; (agenda . 5)
+                     ;; (registers . 5)
+		     )
+   )
+  (dashboard-modify-heading-icons '((recents . "nf-oct-file_text")
+                                  (bookmarks . "nf-oct-book")))
+  (dashboard-setup-startup-hook)
+  )
+
+(use-package rainbow-delimiters
   :hook (
 	 (prog-mode . rainbow-delimiters-mode)
 	 (emacs-lisp-mode . rainbow-delimiters-mode)
