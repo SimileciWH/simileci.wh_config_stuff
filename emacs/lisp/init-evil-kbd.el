@@ -15,10 +15,12 @@
 (define-key evil-normal-state-map (kbd "gr") 'xref-find-references)
 (define-key evil-normal-state-map (kbd "g-") 'xref-go-forward)
 (define-key evil-normal-state-map (kbd "g=") 'xref-go-back)
+(define-key evil-normal-state-map (kbd "gh") 'ff-find-other-file-other-window)
 
 (define-key evil-visual-state-map (kbd "gr") 'xref-find-references)
 (define-key evil-visual-state-map (kbd "g-") 'xref-go-forward)
 (define-key evil-visual-state-map (kbd "g=") 'xref-go-back)
+(define-key evil-visual-state-map (kbd "gh") 'ff-find-other-file-other-window)
 
 
 

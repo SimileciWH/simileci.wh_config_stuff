@@ -16,6 +16,7 @@ if [[ TRUE == ${is_window} ]]; then
       ;;
   esac
 elif [[ TRUE == ${is_macos} ]]; then
+
   # homebrew
   alias bc='brew install --cask'
   alias bf='brew install'
@@ -29,7 +30,6 @@ elif [[ TRUE == ${is_macos} ]]; then
   alias rld='riscv64-unknown-elf-ld'
   alias rnm='riscv64-unknown-elf-gcc-nm'
 
-  alias oakGate='cd ${workspace_PATH}/oakGate/EnduroSDK_v4.4.0_P3'
 
   # built-in
   alias readelf='greadelf'
@@ -37,45 +37,7 @@ elif [[ TRUE == ${is_macos} ]]; then
   alias objdump='gobjdump'
 
 
-  # http proxy
-  alias proxy='
-  export https_proxy=http://127.0.0.1:7890
-  export http_proxy=http://127.0.0.1:7890
-  export all_proxy=socks5://127.0.0.1:7890
-  '
-  alias unproxy='
-  unset https_proxy
-  unset http_proxy
-  unset all_proxy
-  '
-  alias echoproxy='
-  echo $https_proxy
-  echo $http_proxy
-  echo $all_proxy
-  '
-elif [[ TRUE == ${is_linux} ]]; then
-  #http proxy
-  export hostip=$(ip route | grep default | awk '{print $3}')
-  export socks_hostport=7890
-  export http_hostport=7890
-  alias proxy='
-  export https_proxy="http://${hostip}:${http_hostport}"
-  export http_proxy="http://${hostip}:${http_hostport}"
-  export ALL_PROXY="socks5://${hostip}:${socks_hostport}"
-  export all_proxy="socks5://${hostip}:${socks_hostport}"
-  '
-  alias unproxy='
-  unset ALL_PROXY
-  unset https_proxy
-  unset http_proxy
-  unset all_proxy
-  '
-  alias echoproxy='
-  echo $ALL_PROXY
-  echo $all_proxy
-  echo $https_proxy
-  echo $http_proxy
-  '
+elif [[ TRUE == ${is_linux} || TRUE == ${is_linux_parallels} ]]; then
 fi
 
 # Some good standards, which are not used if the user
@@ -97,11 +59,14 @@ alias svar='source ${OneDrive_PATH}/terminal/.bash_variables'
 alias spf='source ~/${bash_profile}'
 
 # edit cmd
-alias epf='emacsclient ~/${bash_profile}'
-alias ealias='emacsclient ${OneDrive_PATH}/terminal/.bash_aliases'
-alias evar='emacsclient ${OneDrive_PATH}/terminal/.bash_variables'
+alias epf='vim ~/${bash_profile}'
+alias ealias='vim ${OneDrive_PATH}/terminal/.bash_aliases'
+alias evar='vim ${OneDrive_PATH}/terminal/.bash_variables'
 
 # dir cmd
+alias .='cd'
+alias ..='cd ../'
+alias ...='cd ../../'
 alias ct='cd ${workspace_PATH}/test'
 alias cw='cd ${workspace_PATH}/'
 alias cr='cd ${workspace_PATH}/release/'
@@ -111,8 +76,10 @@ alias 35='cd ${workspace_PATH}/rl6643_pipeline_b/'
 alias 32='cd ${workspace_PATH}/rl6468_pipeline_b/'
 alias 33='cd ${workspace_PATH}/rl6531_pipeline_b/'
 alias 71='cd ${workspace_PATH}/rl6817_pipeline_b/'
+alias 30='cd ${workspace_PATH}/rl6930_pipeline_b/'
 alias em='cd ${OneDrive_PATH}/'
 alias linux='cd ${linux_kernal_PATH}/'
+alias cai='cd /Users/wanghui/work_space/ai_code_wk'
 
 function mcd {
   mkdir $1 && cd $1;
@@ -195,11 +162,11 @@ alias grhard='git reset --hard'
 
 
 # espanso
-alias eb='emacsclient   ${espanso_PATH}/match/base.yml'
-alias ed='emacsclient   ${espanso_PATH}/config/default.yml'
-alias en='emacsclient   ${OneDrive_PATH}/espansoCfg/peopleName.yml'
-alias ecfg='emacsclient ${OneDrive_PATH}/espansoCfg/SSDCfg.yml'
-alias ers='espansod restart'
+alias eb='vim   ${espanso_PATH}/match/base.yml'
+alias ed='vim   ${espanso_PATH}/config/default.yml'
+alias en='vim   ${OneDrive_PATH}/espansoCfg/peopleName.yml'
+alias ecfg='vim ${OneDrive_PATH}/espansoCfg/SSDCfg.yml'
+alias ers='espanso restart'
 
 
 # tags for emacs and neovim
@@ -226,3 +193,8 @@ ctags \
   -R *
 
 }
+
+# claude code
+alias cc='claude'
+alias cc_yolo='claude --dangerously-skip-permissions'
+

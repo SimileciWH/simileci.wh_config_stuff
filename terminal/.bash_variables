@@ -1,16 +1,19 @@
 echo "load bash_variables"
 
+# shopt -s histappend
+# export PROMPT_COMMAND="history -a; history -n; history -w; history -c; history -r"
+
 if [[ TRUE == ${is_window} ]]; then
 	echo "we are in window!"
 	linux_kernal_PATH="//wsl.localhost/Ubuntu-22.04/home/simileci/work_space"
-	OneDrive_PATH="/e/NewE/OneDrive/WinMacSwapStuff"
+	OneDrive_PATH="/e/OneDrive/WinMacSwapStuff"
 	workspace_PATH="/d/work_space"
 	espanso_PATH="/c/Users/PC_SSD_FW1/AppData/Roaming/espanso"
 	bash_profile=".bash_profile"
 elif [[ TRUE == ${is_cygwin} ]]; then
 	echo "we are in cygwin!"
 	linux_kernal_PATH="//wsl.localhost/Ubuntu-22.04/home/simileci/work_space"
-	OneDrive_PATH="/cygdrive/e/NewE/OneDrive/WinMacSwapStuff"
+	OneDrive_PATH="/cygdrive/e/OneDrive/WinMacSwapStuff"
 	workspace_PATH="/cygdrive/d/work_space"
 	espanso_PATH="/cygdrive/c/Users/PC_SSD_FW1/AppData/Roaming/espanso"
 	bash_profile=".bash_profile"
@@ -21,10 +24,17 @@ elif [[ TRUE == ${is_macos} ]]; then
 	workspace_PATH="/Volumes/SS980/work_space"
 	espanso_PATH="/Users/simileciwh/Library/Application\ Support/espanso"
 	bash_profile=".zshrc"
-elif [[ TRUE == ${is_linux} ]]; then
-	echo "we are in linux!"
+elif [[ TRUE == ${is_mbp} ]]; then
+	echo "we are in mbp!"
+	linux_kernal_PATH="/Users/wanghui/work_space/linux_kernel/"
+	OneDrive_PATH="/Volumes/Macintosh HD/Users/wanghui/OneDrive/WinMacSwapStuff"
+	workspace_PATH="/Users/wanghui/work_space"
+	espanso_PATH="/Users/wanghui/Library/Application\ Support/espanso"
+	bash_profile=".zshrc"
+elif [[ TRUE == ${is_linux_wsl} ]]; then
+	echo "we are in WSL linux!"
 	linux_kernal_PATH="/home/simileci/work_space"
-	OneDrive_PATH="/mnt/e/NewE/OneDrive/WinMacSwapStuff"
+	OneDrive_PATH="/mnt/e/OneDrive/WinMacSwapStuff"
 	workspace_PATH="/mnt/d/work_space"
 	# espanso_PATH="/Users/simileciwh/Library/Application\ Support/espanso"
 	bash_profile=".bashrc"
@@ -49,8 +59,8 @@ if [ -f ${OneDrive_PATH}/terminal/.bash_aliases ]; then
 fi
 
 ## auto run AHK
-if [[ TRUE == ${is_window} || TRUE == ${is_cygwin} ]]; then
-	cd ${OneDrive_PATH}/AHK/
-	AutoHotkeyUX.exe MainAHK.ahk &
-	cd ~
-fi
+# if [[ TRUE == ${is_window} || TRUE == ${is_cygwin} ]]; then
+# 	cd ${OneDrive_PATH}/AHK/
+# 	AutoHotkeyUX.exe MainAHK.ahk &
+# 	cd ~
+# fi

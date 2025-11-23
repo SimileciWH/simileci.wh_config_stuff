@@ -178,9 +178,9 @@
   (dolist (hook '(text-mode-hook))
     (add-hook hook (lambda () (flyspell-mode 1)))
     )
-  (if *is-windows* 
+  (if *is-windows*
       (setq ispell-program-name "aspell")
-    (setq ispell-personal-dictionary "c:/msys64/mingw64/lib/aspell-0.60/en_GB")
+      (setq ispell-personal-dictionary "c:/msys64/mingw64/lib/aspell-0.60/en_GB")
     )
   )
 (use-package fanyi
@@ -195,7 +195,7 @@
 		     ;; fanyi-longman-provider)
 		     ))
   )
-  
+
 (use-package benchmark-init
   :demand t
   :config

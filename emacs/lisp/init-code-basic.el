@@ -2,18 +2,6 @@
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 (add-hook 'c-mode-hook #'hide-ifdef-mode)
 
-(use-package quickrun
-    :commands (quickrun)
-    :init
-    (quickrun-add-command "c/gcc"
-    '((:command . "gcc")
-	(:exec . ("%c %o -o %e %s"
-		"%e %a"))
-	(:remove . ("%e")))
-;    :mode 'c-mode
-    :default "c")
-    )
-
 (unless *is-windows*
   (if (version< "29.0" emacs-version)
     (use-package treesit-auto
@@ -27,33 +15,33 @@
       )
     )
 
-  (use-package eglot
-    :hook ((prog-mode . (lambda ()
-                          (unless (derived-mode-p 'emacs-lisp-mode 'lisp-mode 'makefile-mode 'snippet-mode)
-                            (eglot-ensure))))
-           ((markdown-mode yaml-mode yaml-ts-mode) . eglot-ensure)
-	   (c-mode . eglot-ensure)
-	   (c++-mode . eglot-ensure)
-	   )
-    :config
-    (use-package consult-eglot
-      :bind (:map eglot-mode-map
-		  ("C-M-." . consult-eglot-symbols))
-      )
-    (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
-    )
-  )
-
-(use-package imenu-list
-  :init
-  (setq
-   imenu-list-focus-after-activation t
-   imenu-list-auto-resize t
-   imenu-list-position 'right
+  ;; (use-package eglot
+  ;;   :hook ((prog-mode . (lambda ()
+  ;;                         (unless (derived-mode-p 'emacs-lisp-mode 'lisp-mode 'makefile-mode 'snippet-mode)
+  ;;                           (eglot-ensure))))
+  ;;          ((markdown-mode yaml-mode yaml-ts-mode) . eglot-ensure)
+  ;;      (c-mode . eglot-ensure)
+  ;;      (c++-mode . eglot-ensure)
+  ;;      )
+  ;;   :config
+  ;;   (use-package consult-eglot
+  ;;     :bind (:map eglot-mode-map
+  ;;   	  ("C-M-." . consult-eglot-symbols))
+  ;;     )
+  ;;   (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
+  ;;   )
    )
-  :config
-  ;; (imenu-list-minor-mode t)
-  )
+
+ (use-package imenu-list
+   :init
+   (setq
+    imenu-list-focus-after-activation t
+    imenu-list-auto-resize t
+    imenu-list-position 'right
+    )
+   :config
+   ;; (imenu-list-minor-mode t)
+   )
 
 ;; (setq-default c-basic-offset 4
 ;;               tab-width 4

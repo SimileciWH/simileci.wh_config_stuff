@@ -2,17 +2,17 @@
 ;;key binding set
 
 (cond  (*is-mac*
-	(setq mac-option-modifier 'meta)
-	(setq mac-command-modifier 'super))
+	    (setq mac-option-modifier 'meta)
+	    (setq mac-command-modifier 'super))
        (*is-windows*
-	"need change lwindow and lALT with keyboard or powertoy"
-	;; (setq w32-pass-lwindow-to-system nil)
-	(setq w32-apps-modifier 'super)
-	(w32-register-hot-key [s-])
-	
-	)
+	    "need change lwindow and lALT with keyboard or powertoy"
+	    ;; (setq w32-pass-lwindow-to-system nil)
+	    (setq w32-apps-modifier 'super)
+	    (w32-register-hot-key [s-])
+
+	    )
        (t "need check for linux")
-       
+
        )
 
 (global-set-key (kbd "s-a") 'mark-whole-buffer)
@@ -44,18 +44,11 @@
 (which-key-setup-side-window-bottom)
 (use-package general
   :init
-  (general-create-definer my-global-definer
-    :keymaps 'override
-    :prefix "C-SPC"
-    :non-normal-prefix "C-SPC"
-    )
-  (general-create-definer global-org-mode-definer
-    :keymaps 'override
-    :prefix "C-o"
-    :non-normal-prefix "C-o"
-    )
   (general-create-definer global-definer
-    :prefix "C-c"
+    :keymaps 'override
+    :states '(insert emacs normal hybrid motion visual operator)
+    :prefix "SPC"
+    :non-normal-prefix "S-SPC"
     )
 
   (defmacro +general-global-menu! (name infix-key &rest body)
@@ -63,44 +56,33 @@
     (declare (indent 2))
     `(progn
        (general-create-definer ,(intern (concat "+general-global-" name))
-	 :wrapping global-definer
-	 :prefix-map ',(intern (concat "+general-global-" name "-map"))
-	 :infix ,infix-key
-	 :wk-full-keys nil
-	 "" '(:ignore t :which-key ,name))
+	     :wrapping global-definer
+	     :prefix-map ',(intern (concat "+general-global-" name "-map"))
+	     :infix ,infix-key
+	     :wk-full-keys nil
+	     "" '(:ignore t :which-key ,name))
        (,(intern (concat "+general-global-" name))
-	,@body)))
-  (defmacro +general-global-menu-org-mode! (name infix-key &rest body)
-    "Create a definer named +general-global-NAME wrapping global-definer.Create prefix map: +general-global-NAME. Prefix bindings in BODY with INFIX-KEY."
-    (declare (indent 2))
-    `(progn
-       (general-create-definer ,(intern (concat "+general-global-" name))
-	 :wrapping global-org-mode-definer
-	 :prefix-map ',(intern (concat "+general-global-" name "-map"))
-	 :infix ,infix-key
-	 :wk-full-keys nil
-	 "" '(:ignore t :which-key ,name))
-       (,(intern (concat "+general-global-" name))
-	,@body)))
+	    ,@body)))
   )
 
 
-(my-global-definer
+(global-definer
   "SPC" 'execute-extended-command
-  
-  )
+  "w" 'ace-window
+  "." 'swiper-thing-at-point
+  "/" 'swiper
+  "1" 'select-window-1
+  "2" 'select-window-2
+  "3" 'select-window-3
+  "4" 'select-window-4
+  "5" 'select-window-5
+ )
 (+general-global-menu! "layout-left" "l"
   "e" 'treemacs  ;; enable it
   "w" 'treemacs-select-windows
   "b" 'treemacs-bookmark
   "f" 'treemacs-find-tag
-  ;; "s" 'lsp-treemacs-symbols
-  ;; "F" 'lsp-treemacs-errors-list
-  ;; "g" 'lsp-treemacs-goto-symbol
-  ;; "h" 'lsp-treemacs-call-hierarchy
-  ;; "r" 'lsp-treemacs-references
-  ;; "d" 'lsp-treemacs-implementations
-  
+
   )
 (+general-global-menu! "layout-right" "r"
   "e" 'imenu-list-minor-mode  ;; enable it
@@ -113,16 +95,26 @@
 (+general-global-menu! "buffer" "b"
   "b" 'consult-project-buffer
   "k" 'kill-current-buffer
-  
+  "x" 'eval-buffer
+  "s" 'save-some-buffers
+  "c" 'ispell-buffer
+  "w" 'consult-buffer-other-window
+  "n" 'rename-buffer
+  "l" 'list-buffers
+  "u" 'revert-buffer
+  "+" 'evil-buffer-new
   )
 (+general-global-menu! "file" "f"
+  "f" 'counsel-find-file
   "o" 'recentf-open-files
   "r" 'consult-recent-file
   "L" 'consult-locate
   ;; "R" 'my/rename-current-buffer-file
   "p" 'project-find-file
-  "f" 'counsel-projectile-find-file
+  ;; "f" 'counsel-projectile-find-file
   "d" 'counsel-projectile-find-dir
+  "n" 'rename-file
+  "w" 'projectile-find-file-other-window
   )
 (+general-global-menu! "tabspace" "t"
   "c" 'tabspaces-clear-buffers
@@ -136,9 +128,8 @@
   "s" 'tabspaces-switch-or-create-workspace
   "t" 'tabspaces-switch-buffer-and-tab
   "S" 'tabspaces-save-session
+  "TAB" 'tab-bar-switch-to-recent-tab
   )
-
-
 
 (+general-global-menu! "search" "s"
   "e" 'embark-export-write  ;;export consult-ripgrep result
@@ -190,7 +181,7 @@
   ";" 'evilmi-jump-items-native
   "d" 'evilmi-delete-items
   "r" 'evilmi-select-items
- )
+  )
 
 
 (+general-global-menu! "edit" "e"
@@ -247,8 +238,8 @@
   "a" 'project-remember-projects-under
   "x" 'project-forget-project
   "s" 'counsel-projectile-switch-project
-  
-  
+
+
   )
 
 (+general-global-menu! "eshell" "z"
@@ -265,9 +256,8 @@
 (+general-global-menu! "func" "x"
   "e" 'restart-emacs
   "n" 'tab-rename
-  "t" 'counsel-etags-scan-code
-  "u" 'counsel-etags-update-tags-force
-  "r" 'quickrun
+  "t" 'visit-tags-table
+  ;; "u" 'counsel-etags-update-tags-force
   "w" 'resize-window
   "f" 'astyle-region
   "c" 'yas-insert-snippet
@@ -297,59 +287,54 @@
   "P" 'markdown-outline-previous-same-level
   )
 
-(global-org-mode-definer
- "/" 'org-todo
- "a" 'org-agenda
- "c" 'org-capture
- "b" 'org-insert-todo-heading
- "x" 'org-toggle-checkbox
- "s" 'org-set-property
- "p" 'org-priority
- "'" 'org-set-tags-command
- "o" 'org-open-at-point
- )
-(+general-global-menu-org-mode! "roam" "r"
-  "l" 'org-roam-buffer-toggle
-  "f" 'org-roam-node-find
-  "g" 'org-roam-graph
-  "i" 'org-roam-node-insert
-  "c" 'org-roam-capture
-  "j" 'org-roam-dailies-capture-today
-  "s" 'org-roam-ui-open
-  )
 
-(+general-global-menu-org-mode! "Hyperlinks" "l"
-  "l" 'org-insert-link
-  "s" 'org-mark-ring-push
-  "g" 'org-mark-ring-goto
-  "n" 'org-next-link
-  "p" 'org-previous-link
-  )
+(+general-global-menu! "org" "o"
+  "/" 'org-todo
+  "a" 'org-agenda
+  "c" 'org-capture
+  "b" 'org-insert-todo-heading
+  "x" 'org-toggle-checkbox
+  "s" 'org-set-property
+  "P" 'org-priority
+  "'" 'org-set-tags-command
+  "o" 'org-open-at-point
 
-(+general-global-menu-org-mode! "TODO" "d"
-  "t" 'org-show-todo-tree
-  "[" 'org-priority-up
-  "]" 'org-priority-down
-  "u" 'org-update-statistics-cookies
-  )
+  "rl" 'org-roam-buffer-toggle
+  "rf" 'org-roam-node-find
+  "rg" 'org-roam-graph
+  "ri" 'org-roam-node-insert
+  "rc" 'org-roam-capture
+  "rj" 'org-roam-dailies-capture-today
+  "rs" 'org-roam-ui-open
 
-(+general-global-menu-org-mode! "SymbolTags" "t"
-  "v" 'org-tags-view
-  "S" 'org-match-sparse-tree
-  ;; time stamps
-  "t" 'org-time-stamp
-  "T" 'org-time-stamp-inactive
-  "g" 'org-goto-calendar
-  "c" 'org-evaluate-time-range
-  "d" 'org-deadline
-  "s" 'org-schedule
-  
-  )
-(+general-global-menu-org-mode! "Picture" "p"
-  "s" 'org-toggle-inline-images
-  "v" 'org-download-screenshot
-  "V" 'org-download-clipboard
-  )
+  ;; hyperlink
+  "ll" 'org-insert-link
+  "ls" 'org-mark-ring-push
+  "lg" 'org-mark-ring-goto
+  "ln" 'org-next-link
+  "lp" 'org-previous-link
 
+  ;; TODO
+  "dt" 'org-show-todo-tree
+  "d[" 'org-priority-up
+  "d]" 'org-priority-down
+  "du" 'org-update-statistics-cookies
+
+  ;; SymbolTags
+  "tv" 'org-tags-view
+  "tS" 'org-match-sparse-tree
+                                        ;t; time stamps
+  "tt" 'org-time-stamp
+  "tT" 'org-time-stamp-inactive
+  "tg" 'org-goto-calendar
+  "tc" 'org-evaluate-time-range
+  "td" 'org-deadline
+  "ts" 'org-schedule
+
+  ;; picture
+  "ps" 'org-toggle-inline-images
+  "pv" 'org-download-screenshot
+  "pV" 'org-download-clipboard
+  )
 
 (provide 'init-kbd)

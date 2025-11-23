@@ -58,8 +58,8 @@
   (tabspaces-remove-to-default t)
   (tabspaces-include-buffers '("*scratch*"))
   ;; maybe slow
-  ; (tabspaces-session t)
-  ; (tabspaces-session-auto-restore t)
+  (tabspaces-session t)
+  (tabspaces-session-auto-restore t)
   :config
   ;; Filter Buffers for Consult-Buffer
 
@@ -82,6 +82,10 @@
       "Set workspace buffer list for consult-buffer.")
     (add-to-list 'consult-buffer-sources 'consult--source-workspace)
     )
+  )
+
+(use-package window-numbering
+  :hook (after-init . window-numbering-mode)
   )
 
 (provide 'init-workSpace)
